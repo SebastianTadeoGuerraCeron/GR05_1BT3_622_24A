@@ -13,7 +13,7 @@
     .container {
       width: 60%;
       margin: 0 auto;
-      padding: 20px;
+      padding: 40px;
       border: 1px solid #ccc;
       border-radius: 10px;
     }
@@ -30,12 +30,21 @@
       font-weight: bold;
     }
     input[type="text"],
-    textarea,
     select {
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
+      width: 50%; /* Ocupa todo el ancho del contenedor */
+      box-sizing: border-box; /* Asegura que padding y border no influyan en el tamaño */
+    }
+    textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
       width: 100%;
+      height: 150px; /* Altura fija */
+      resize: none;  /* No se puede redimensionar */
+      box-sizing: border-box;
     }
     /* Estilos de los botones */
     .buttons {
@@ -50,6 +59,7 @@
       padding: 10px 20px;
       cursor: pointer;
       border-radius: 5px;
+      font-size: 16px;
     }
     button:hover {
       background-color: #45a049;
@@ -71,7 +81,8 @@
     <input type="text" id="restaurante" name="restaurante" required>
 
     <label for="contenido">Tu Reseña:</label>
-    <textarea id="contenido" name="contenido" rows="5" required></textarea>
+    <!-- Área de texto con tamaño fijo -->
+    <textarea id="contenido" name="contenido" required></textarea>
 
     <div class="buttons">
       <button type="submit">Publicar</button>
