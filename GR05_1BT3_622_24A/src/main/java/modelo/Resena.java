@@ -8,13 +8,15 @@ public class Resena {
     private LocalDateTime fechaPublicacion;
     private String restaurant;
     private String categoria;
+    private String content;
     private List<Comentario> listaComentarios;
 
-    public Resena(String resenaID, LocalDateTime fechaPublicacion, String restaurant, String categoria, List<Comentario> listaComentarios) {
+    public Resena(String resenaID, LocalDateTime fechaPublicacion, String restaurant, String categoria, String content, List<Comentario> listaComentarios) {
         this.resenaID = resenaID;
         this.fechaPublicacion = fechaPublicacion;
         this.restaurant = restaurant;
         this.categoria = categoria;
+        this.content = content;
         this.listaComentarios = listaComentarios;
     }
 
@@ -48,6 +50,13 @@ public class Resena {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public List<Comentario> getListaComentarios() {
