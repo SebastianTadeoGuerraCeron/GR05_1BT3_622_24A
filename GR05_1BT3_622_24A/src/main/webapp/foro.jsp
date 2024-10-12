@@ -70,6 +70,19 @@
         .resena p {
             margin: 5px 0;
         }
+        .boton-ampliar {
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .boton-ampliar:hover {
+            background-color: #007BB5;
+        }
     </style>
 </head>
 <body>
@@ -107,6 +120,8 @@
             <h3><%= resena.getRestaurant() %> - <%= resena.getCategoria() %></h3>
             <p><em><%= resena.getFechaPublicacion() %></em></p>
             <p><%= resena.getContenido() %></p>
+            <!-- Botón para ampliar la reseña -->
+            <button class="boton-ampliar" onclick="window.location.href='verResena.jsp?id=<%= resena.getId() %>'">Ampliar</button>
         </div>
         <%
             }

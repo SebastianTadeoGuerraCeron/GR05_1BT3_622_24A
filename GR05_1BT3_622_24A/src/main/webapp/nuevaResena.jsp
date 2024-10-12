@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,9 +45,10 @@
       box-sizing: border-box;
     }
     /* Estilos de los botones */
-    .buttons {
+    .button-group {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start; /* Alinea los botones hacia la izquierda */
+      gap: 460px; /* Añade espacio entre los botones */
       margin-top: 20px;
     }
     button {
@@ -64,14 +63,20 @@
     button:hover {
       background-color: #45a049;
     }
+    .cancel-button {
+      background-color: #f44336;
+    }
+    .cancel-button:hover {
+      background-color: #e53935;
+    }
   </style>
 </head>
 <body>
 <div class="container">
-  <h1>Agregar Nueva Reseña</h1>
+  <h1>Agregar Nueva Resena</h1>
+
   <form action="NuevaResenaServlet" method="POST">
     <label for="categoria">Tipo de Comida:</label>
-    <!-- Combo Box (Filtro de tipo de comida) -->
     <select id="categoria" name="categoria" required>
       <option value="chatarra">Comida Chatarra</option>
       <option value="tradicional">Comida Tradicional</option>
@@ -80,14 +85,20 @@
     <label for="restaurante">Nombre del Restaurante:</label>
     <input type="text" id="restaurante" name="restaurante" required>
 
-    <label for="contenido">Tu Reseña:</label>
-    <!-- Área de texto con tamaño fijo -->
+    <label for="contenido">Tu Resena:</label>
     <textarea id="contenido" name="contenido" required></textarea>
 
-    <div class="buttons">
-      <button type="submit">Publicar</button>
-      <!-- Botón Cancelar en lugar de Regresar al Foro -->
-      <button type="button" onclick="window.location.href='foro.jsp'">Cancelar</button>
+    <!-- Grupo de botones alineados horizontalmente -->
+    <div class="button-group">
+      <!-- Formulario para el botón "Publicar" -->
+      <form action="NuevaResenaServlet" method="POST" style="margin: 0;">
+        <button type="submit">Publicar</button>
+      </form>
+
+      <!-- Formulario para el botón "Cancelar" -->
+      <form action="foro.jsp" method="GET" style="margin: 0;">
+        <button type="submit" class="cancel-button">Cancelar</button>
+      </form>
     </div>
   </form>
 </div>
