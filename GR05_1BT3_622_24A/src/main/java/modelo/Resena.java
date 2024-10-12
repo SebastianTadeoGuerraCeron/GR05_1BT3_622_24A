@@ -1,24 +1,15 @@
 package modelo;
 
-import java.util.List;
 import java.time.LocalDateTime;
 
 public class Resena {
     private String resenaID;
-    private LocalDateTime fechaPublicacion;
-    private String restaurant;
     private String categoria;
-    private String content;
-    private List<Comentario> listaComentarios;
+    private String restaurant;
+    private String contenido;
+    private LocalDateTime fechaPublicacion;
 
-    public Resena(String resenaID, LocalDateTime fechaPublicacion, String restaurant, String categoria, String content, List<Comentario> listaComentarios) {
-        this.resenaID = resenaID;
-        this.fechaPublicacion = fechaPublicacion;
-        this.restaurant = restaurant;
-        this.categoria = categoria;
-        this.content = content;
-        this.listaComentarios = listaComentarios;
-    }
+    // Getters y Setters
 
     public String getResenaID() {
         return resenaID;
@@ -28,12 +19,12 @@ public class Resena {
         this.resenaID = resenaID;
     }
 
-    public LocalDateTime getFechaPublicacion() {
-        return fechaPublicacion;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setFechaPublicacion(LocalDateTime fechaPublicacion) {
-        this.fechaPublicacion = fechaPublicacion;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public String getRestaurant() {
@@ -44,27 +35,20 @@ public class Resena {
         this.restaurant = restaurant;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public String getContenido() {
+        return contenido;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-    public String getContent() {
-        return content;
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public LocalDateTime getFechaPublicacion() {
+        return fechaPublicacion;
     }
 
-    public List<Comentario> getListaComentarios() {
-        return listaComentarios;
-    }
-
-    public void setListaComentarios(List<Comentario> listaComentarios) {
-        this.listaComentarios = listaComentarios;
+    public void setFechaPublicacion(LocalDateTime fechaPublicacion) {
+        this.fechaPublicacion = fechaPublicacion;
     }
 }
 

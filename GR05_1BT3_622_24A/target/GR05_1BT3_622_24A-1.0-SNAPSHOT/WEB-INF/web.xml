@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>NuevaResenaServlet</servlet-name>
-        <servlet-class>com.example.gr05_1bt3_622_24a.NuevaResenaServlet</servlet-class>
+        <servlet-class>com.example.gr05_1bt3_622_24a.servlets.NuevaResenaServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

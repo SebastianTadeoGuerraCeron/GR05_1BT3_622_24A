@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import modelo.Resena;
+
 import java.io.IOException;
 import java.util.logging.Logger;
 import java.util.ArrayList;
@@ -13,7 +15,7 @@ import java.util.ArrayList;
 public class NuevaResenaServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final Logger logger = Logger.getLogger(NuevaResenaServlet.class.getName());
-    private static ArrayList<Resena> listaResenas = new ArrayList<>();
+    private static final ArrayList<Resena> listaResenas = new ArrayList<>();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String categoria = request.getParameter("categoria");

@@ -1,4 +1,4 @@
-<%@ page import="com.example.gr05_1bt3_622_24a.Resena" %>
+<%@ page import="modelo.Resena" %>
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
