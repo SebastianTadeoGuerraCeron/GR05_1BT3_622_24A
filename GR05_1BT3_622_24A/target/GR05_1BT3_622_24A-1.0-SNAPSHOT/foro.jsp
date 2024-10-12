@@ -78,10 +78,11 @@
     <div class="filtro-boton">
         <!-- Combo Box (Filtro) -->
         <div class="combo-box">
-            <label for="filtro-comida">Tipo de Comida:</label>
+            <label for="filtro-comida">Filtrar por Comida:</label>
             <select id="filtro-comida" name="filtro-comida">
                 <option value="chatarra">Comida Chatarra</option>
                 <option value="tradicional">Comida Tradicional</option>
+                <option value="ALL">Todo</option>
             </select>
         </div>
 
