@@ -21,10 +21,25 @@
         h1 {
             text-align: center;
         }
-        .boton-resena {
+        .filtro-boton {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 20px;
+        }
+        .combo-box {
+            width: 200px;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
         }
         .boton-resena button {
             background-color: #4CAF50;
@@ -32,7 +47,8 @@
             border: none;
             padding: 10px 20px;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 10px;
+            font-size: 16px;
         }
         .boton-resena button:hover {
             background-color: #45a049;
@@ -58,9 +74,21 @@
 <div class="container">
     <h1>Las Huequitas</h1>
 
-    <!-- Botón para agregar nueva reseña -->
-    <div class="boton-resena">
-        <button onclick="window.location.href='nuevaResena.jsp'">Nueva Reseña</button>
+    <!-- Filtro y botón alineados horizontalmente -->
+    <div class="filtro-boton">
+        <!-- Combo Box (Filtro) -->
+        <div class="combo-box">
+            <label for="filtro-comida">Tipo de Comida:</label>
+            <select id="filtro-comida" name="filtro-comida">
+                <option value="chatarra">Comida Chatarra</option>
+                <option value="tradicional">Comida Tradicional</option>
+            </select>
+        </div>
+
+        <!-- Botón para agregar nueva reseña -->
+        <div class="boton-resena">
+            <button onclick="window.location.href='nuevaResena.jsp'">Nueva Reseña</button>
+        </div>
     </div>
 
     <!-- Aquí se listarán las reseñas del foro -->

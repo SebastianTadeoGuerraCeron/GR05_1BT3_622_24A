@@ -30,7 +30,8 @@
       font-weight: bold;
     }
     input[type="text"],
-    textarea {
+    textarea,
+    select {
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
@@ -60,7 +61,11 @@
   <h1>Agregar Nueva Reseña</h1>
   <form action="NuevaResenaServlet" method="POST">
     <label for="categoria">Tipo de Comida:</label>
-    <input type="text" id="categoria" name="categoria" required>
+    <!-- Combo Box (Filtro de tipo de comida) -->
+    <select id="categoria" name="categoria" required>
+      <option value="chatarra">Comida Chatarra</option>
+      <option value="tradicional">Comida Tradicional</option>
+    </select>
 
     <label for="restaurante">Nombre del Restaurante:</label>
     <input type="text" id="restaurante" name="restaurante" required>
@@ -77,4 +82,3 @@
 </div>
 </body>
 </html>
-<!--     </div> -->
