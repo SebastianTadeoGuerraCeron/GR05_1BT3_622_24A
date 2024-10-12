@@ -82,10 +82,10 @@ public class Resena {
     public void setContenido(String contenido) {
         this.contenido = contenido;
     }
-    public String getContent() {
+
+    public String getContenido() {
         return contenido;
     }
-
     public Foro getForo() {
         return foro;
     }
@@ -101,6 +101,7 @@ public class Resena {
     public void setListaComentarios(List<Comentario> listaComentarios) {
         this.listaComentarios = listaComentarios;
     }
+
 
 
 }
