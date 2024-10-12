@@ -20,6 +20,7 @@
         }
         h1 {
             text-align: center;
+            font-size: 60px;
         }
         .filtro-boton {
             display: flex;
