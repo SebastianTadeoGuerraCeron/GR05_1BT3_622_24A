@@ -4,16 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <servlet>
-        <servlet-name>NuevaResenaServlet</servlet-name>
-        <servlet-class>com.example.gr05_1bt3_622_24a.servlets.NuevaResenaServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>NuevaResenaServlet</servlet-name>
-        <url-pattern>/NuevaResenaServlet</url-pattern>
-    </servlet-mapping>
-
+    <!-- El punto de entrada de la aplicación es ahora el ForoServlet -->
     <welcome-file-list>
         <welcome-file>foro.jsp</welcome-file>
     </welcome-file-list>

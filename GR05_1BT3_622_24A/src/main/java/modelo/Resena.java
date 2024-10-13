@@ -2,6 +2,7 @@ package modelo;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,8 +24,9 @@ public class Resena {
     @JoinColumn(name = "foro_id")
     private Foro foro;
 
-    @OneToMany(mappedBy = "resena", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Comentario> listaComentarios;
+    @OneToMany(mappedBy = "resena", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<Comentario> listaComentarios = new ArrayList<>();
+
 
     // Constructor sin argumentos
     public Resena() {

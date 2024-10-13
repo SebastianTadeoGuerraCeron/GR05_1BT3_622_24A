@@ -1,11 +1,11 @@
 <%@ page import="modelo.Resena" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page import="modelo.Comentario" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Ampliar Reseña</title>
+    <title>Ampliar Resena</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,6 +21,19 @@
             text-align: center;
             font-size: 40px;
         }
+        .comentarios {
+            margin-top: 30px;
+        }
+        .comentario {
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        .comentario p {
+            margin: 0;
+        }
+
+        /* Estilo de los botones */
         .boton-agregar, .boton-cancelar {
             display: inline-block;
             padding: 10px 20px;
@@ -60,11 +73,33 @@
     <p><em><%= resenaAmpliada.getFechaPublicacion() %></em></p>
     <p><%= resenaAmpliada.getContenido() %></p>
 
-    <!-- Botones -->
+    <!-- Botón para agregar un comentario -->
     <button class="boton-agregar" onclick="window.location.href='agregarComentario.jsp?id=<%= resenaAmpliada.getId() %>'">Agregar Comentario</button>
-    <form action="ForoServlet" method="GET" style="margin: 0; display: inline;">
+    <!-- Botón "Cancelar" en rojo -->
+
+    <form action="ForoServlet" method="GET" style="margin: 0;">
         <button type="submit" class="boton-cancelar">Cancelar</button>
     </form>
+    <!-- Mostrar los comentarios asociados a la reseña -->
+    <div class="comentarios">
+        <h2>Comentarios</h2>
+        <%
+            if (resenaAmpliada.getListaComentarios() != null && !resenaAmpliada.getListaComentarios().isEmpty()) {
+                for (Comentario comentario : resenaAmpliada.getListaComentarios()) {
+        %>
+        <div class="comentario">
+            <p><strong>Publicado:</strong> <%= comentario.getDatePublish() %></p>
+            <p><%= comentario.getContent() %></p>
+        </div>
+        <%
+            }
+        } else {
+        %>
+        <p>No hay comentarios para esta reseña.</p>
+        <%
+            }
+        %>
+    </div>
 
     <%
     } else {

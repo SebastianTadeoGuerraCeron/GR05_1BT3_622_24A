@@ -2,7 +2,6 @@ package com.example.gr05_1bt3_622_24a.servlets;
 
 import dao.ResenaJpaController;
 import modelo.Resena;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +13,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
+// Importar las clases de verificación
+import negocio.ModeradorComplete;
+import negocio.ModeradorOfensivo;
+
 @WebServlet("/NuevaResenaServlet")
 public class NuevaResenaServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -22,23 +25,25 @@ public class NuevaResenaServlet extends HttpServlet {
     // Crear instancia del controlador JPA
     private final ResenaJpaController resenaJpaController = new ResenaJpaController();
 
+    // Crear instancias de los moderadores
+    private final ModeradorComplete moderadorComplete = new ModeradorComplete();
+    private final ModeradorOfensivo moderadorOfensivo = new ModeradorOfensivo();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Obtener los parámetros del formulario
         String categoria = request.getParameter("categoria");
         String restaurante = request.getParameter("restaurante");
         String contenido = request.getParameter("contenido");
 
-        // Verificar que los campos obligatorios no estén vacíos
-        if (categoria == null || categoria.isEmpty() ||
-                restaurante == null || restaurante.isEmpty() ||
-                contenido == null || contenido.isEmpty()) {
+        // Verificar que la reseña esté completa usando ModeradorComplete
+        if (!moderadorComplete.verificarComplete(categoria, restaurante, contenido)) {
             request.setAttribute("error", "Todos los campos son obligatorios.");
             request.getRequestDispatcher("/nuevaResena.jsp").forward(request, response);
             return;
         }
 
-        // Verificar contenido ofensivo
-        if (verificarContenidoOfensivo(contenido)) {
+        // Verificar contenido ofensivo usando ModeradorOfensivo
+        if (moderadorOfensivo.verificarOfensivo(contenido)) {
             request.setAttribute("error", "La reseña contiene palabras ofensivas.");
             request.getRequestDispatcher("/nuevaResena.jsp").forward(request, response);
             return;
@@ -62,7 +67,6 @@ public class NuevaResenaServlet extends HttpServlet {
             // Pasar la lista de reseñas al JSP
             request.setAttribute("listaResenas", listaResenas);
 
-
             // Redirigir a foro.jsp
             request.getRequestDispatcher("/foro.jsp").forward(request, response);
 
@@ -74,16 +78,5 @@ public class NuevaResenaServlet extends HttpServlet {
             request.setAttribute("error", "Ocurrió un error al agregar la reseña.");
             request.getRequestDispatcher("/nuevaResena.jsp").forward(request, response);
         }
-    }
-
-    // Método para verificar contenido ofensivo
-    private boolean verificarContenidoOfensivo(String contenido) {
-        String[] palabrasOfensivas = {"malaPalabra1", "malaPalabra2"};
-        for (String palabra : palabrasOfensivas) {
-            if (contenido.toLowerCase().contains(palabra.toLowerCase())) {
-                return true;
-            }
-        }
-        return false;
     }
 }

@@ -77,11 +77,15 @@
 
         <!-- Grupo de botones alineados horizontalmente -->
         <div class="button-group">
-            <!-- Botón para publicar el comentario -->
-            <button type="submit">Publicar Comentario</button>
+            <!-- Formulario para el botón "Publicar" -->
+            <form action="AgregarComentarioServlet" method="POST" style="margin: 0;">
+                <button type="submit">Publicar</button>
+            </form>
 
-            <!-- Botón para cancelar y volver al foro -->
-            <button type="button" class="cancel-button" onclick="window.location.href='ForoServlet'">Cancelar</button>
+            <!-- Formulario para el botón "Cancelar" -->
+            <form action="ForoServlet" method="GET" style="margin: 0;">
+                <button type="submit" class="cancel-button">Cancelar</button>
+            </form>
         </div>
     </form>
 </div>

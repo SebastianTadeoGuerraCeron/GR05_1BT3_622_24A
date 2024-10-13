@@ -52,46 +52,15 @@ public class AgregarComentarioServlet extends HttpServlet {
             resena.getListaComentarios().add(nuevoComentario);
             resenaJpaController.edit(resena);
 
-            // Redirigir de nuevo al `doGet` para recuperar la lista de comentarios actualizada
-            response.sendRedirect("AgregarComentarioServlet?idResena=" + idResena);
+            // Redirigir a verResena.jsp para mostrar la reseña y sus comentarios actualizados
+            request.setAttribute("resena", resena);
+            request.getRequestDispatcher("/verResena.jsp").forward(request, response);
 
         } catch (Exception e) {
             e.printStackTrace();
             // En caso de error, regresar a la página del comentario con un mensaje de error
             request.setAttribute("error", "Ocurrió un error al agregar el comentario.");
             request.getRequestDispatcher("/agregarComentario.jsp").forward(request, response);
-        }
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Obtener el ID de la reseña desde la solicitud GET
-        String idResenaParam = request.getParameter("idResena");
-
-        if (idResenaParam != null) {
-            try {
-                Long idResena = Long.parseLong(idResenaParam);
-                // Buscar la reseña en la base de datos
-                Resena resenaAmpliada = resenaJpaController.findResena(idResena);
-
-                if (resenaAmpliada != null) {
-                    // Pasar la reseña y la lista de comentarios al JSP
-                    request.setAttribute("resena", resenaAmpliada);
-                    request.getRequestDispatcher("/verResena.jsp").forward(request, response);
-                } else {
-                    // Si no se encuentra la reseña, redirigir con error
-                    request.setAttribute("error", "La reseña no se ha encontrado.");
-                    request.getRequestDispatcher("/foro.jsp").forward(request, response);
-                }
-            } catch (NumberFormatException e) {
-                // En caso de error en el formato del ID
-                request.setAttribute("error", "ID de reseña inválido.");
-                request.getRequestDispatcher("/foro.jsp").forward(request, response);
-            }
-        } else {
-            // Si no se proporciona ID
-            request.setAttribute("error", "No se proporcionó un ID de reseña.");
-            request.getRequestDispatcher("/foro.jsp").forward(request, response);
         }
     }
 }
