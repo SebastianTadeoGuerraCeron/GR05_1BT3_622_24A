@@ -2,6 +2,7 @@ package com.example.gr05_1bt3_622_24a.servlets;
 
 import dao.ResenaJpaController;
 import modelo.Resena;
+import negocio.Filtro;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,10 +18,16 @@ public class ForoServlet extends HttpServlet {
     private final ResenaJpaController resenaJpaController = new ResenaJpaController();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Obtener el filtro de comida
+        String filtroCategoria = request.getParameter("filtro-comida");
+
         // Obtener la lista de reseñas desde la base de datos
         List<Resena> listaResenas = resenaJpaController.findResenaEntities();
 
-        // Pasar la lista de reseñas a foro.jsp
+        // Filtrar la lista de reseñas usando la clase Filtro
+        listaResenas = Filtro.filtrarPorCategoria(listaResenas, filtroCategoria);
+
+        // Pasar la lista de reseñas filtradas a foro.jsp
         request.setAttribute("listaResenas", listaResenas);
 
         // Redirigir a foro.jsp

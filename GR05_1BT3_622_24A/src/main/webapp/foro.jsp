@@ -91,13 +91,15 @@
 
     <div class="filtro-boton">
         <div class="combo-box">
-            <label for="filtro-comida">Filtrar por Comida:</label>
-            <select id="filtro-comida" name="filtro-comida">
-                <option value="ALL">Todo</option>
-                <option value="chatarra">Chatarra</option>
-                <option value="tradicional">Tradicional</option>
-
-            </select>
+            <!-- El filtro de comida que envía el formulario cuando se selecciona una opción -->
+            <form method="GET" action="ForoServlet">
+                <label for="filtro-comida">Filtrar por Comida:</label>
+                <select id="filtro-comida" name="filtro-comida" onchange="this.form.submit()">
+                    <option value="ALL" <%= request.getParameter("filtro-comida") == null || request.getParameter("filtro-comida").equals("ALL") ? "selected" : "" %>>Todo</option>
+                    <option value="chatarra" <%= "chatarra".equals(request.getParameter("filtro-comida")) ? "selected" : "" %>>Chatarra</option>
+                    <option value="tradicional" <%= "tradicional".equals(request.getParameter("filtro-comida")) ? "selected" : "" %>>Tradicional</option>
+                </select>
+            </form>
         </div>
 
         <div class="boton-resena">
@@ -108,13 +110,15 @@
     <div id="resenas">
         <h2>Reseñas</h2>
         <%
+            // Obtener la lista de reseñas filtradas del Servlet
             List<Resena> listaResenas = (List<Resena>) request.getAttribute("listaResenas");
             if (listaResenas != null && !listaResenas.isEmpty()) {
+                // Iterar sobre las reseñas y mostrarlas
                 for (Resena resena : listaResenas) {
         %>
         <div class="resena">
-            <h3><%= resena.getRestaurant() %>  </h3>
-            <h3> Comida:<%= resena.getCategoria() %> </h3>
+            <h3><%= resena.getRestaurant() %></h3>
+            <h3>Comida: <%= resena.getCategoria() %></h3>
             <p><em><%= resena.getFechaPublicacion() %></em></p>
             <p><%= resena.getContenido() %></p>
             <!-- Botón para ampliar la reseña -->
