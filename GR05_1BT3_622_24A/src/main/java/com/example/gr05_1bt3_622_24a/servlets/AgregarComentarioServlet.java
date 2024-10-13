@@ -1,7 +1,9 @@
 package com.example.gr05_1bt3_622_24a.servlets;
 
+import dao.ComentarioJpaController;
 import dao.ResenaJpaController;
 import modelo.Comentario;
+import modelo.Usuario;
 import negocio.ModeradorComplete;
 import negocio.ModeradorOfensivo;
 
@@ -20,6 +22,7 @@ public class AgregarComentarioServlet extends HttpServlet {
     private static final Logger logger = Logger.getLogger(AgregarComentarioServlet.class.getName());
 
     private ResenaJpaController resenaJpaController = new ResenaJpaController();
+    private ComentarioJpaController comentarioJpaController = new ComentarioJpaController();
 
     // Instanciar el moderador para verificar contenido ofensivo
     private ModeradorOfensivo moderadorOfensivo = new ModeradorOfensivo();
@@ -43,8 +46,11 @@ public class AgregarComentarioServlet extends HttpServlet {
 
             Long idResena = Long.parseLong(idResenaParam);
 
-            // Usar el método estático de la clase Comentario para publicar el comentario
-            Comentario.publicarComentario(contenido, idResena, resenaJpaController);
+            // Crear el usuario (en este caso, se pasa un userID quemado, pero deberías obtenerlo del contexto de sesión)
+            Usuario usuario = new Usuario("userID");  // Aquí deberías obtener el ID del usuario desde la sesión
+
+            // Usar el método de la clase Usuario para agregar el comentario
+            usuario.createComment(contenido, idResena, comentarioJpaController, resenaJpaController);
 
             // Redirigir a verResena.jsp para mostrar la reseña y sus comentarios actualizados
             request.setAttribute("resena", resenaJpaController.findResena(idResena));

@@ -135,4 +135,5 @@ public class UsuarioJpaController {
             em.close();
         }
     }
+
 }
