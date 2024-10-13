@@ -62,7 +62,9 @@
 
     <!-- Botones -->
     <button class="boton-agregar" onclick="window.location.href='agregarComentario.jsp?id=<%= resenaAmpliada.getId() %>'">Agregar Comentario</button>
-    <button class="boton-cancelar" onclick="window.location.href='foro.jsp'">Cancelar</button>
+    <form action="ForoServlet" method="GET" style="margin: 0; display: inline;">
+        <button type="submit" class="boton-cancelar">Cancelar</button>
+    </form>
 
     <%
     } else {
