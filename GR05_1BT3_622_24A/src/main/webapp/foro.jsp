@@ -93,9 +93,10 @@
         <div class="combo-box">
             <label for="filtro-comida">Filtrar por Comida:</label>
             <select id="filtro-comida" name="filtro-comida">
-                <option value="chatarra">Comida Chatarra</option>
-                <option value="tradicional">Comida Tradicional</option>
                 <option value="ALL">Todo</option>
+                <option value="chatarra">Chatarra</option>
+                <option value="tradicional">Tradicional</option>
+
             </select>
         </div>
 
@@ -112,7 +113,8 @@
                 for (Resena resena : listaResenas) {
         %>
         <div class="resena">
-            <h3><%= resena.getRestaurant() %> - <%= resena.getCategoria() %></h3>
+            <h3><%= resena.getRestaurant() %>  </h3>
+            <h3> Comida:<%= resena.getCategoria() %> </h3>
             <p><em><%= resena.getFechaPublicacion() %></em></p>
             <p><%= resena.getContenido() %></p>
             <!-- Botón para ampliar la reseña -->

@@ -47,8 +47,7 @@
     /* Estilos de los botones */
     .button-group {
       display: flex;
-      justify-content: flex-start; /* Alinea los botones hacia la izquierda */
-      gap: 460px; /* Añade espacio entre los botones */
+      justify-content: space-between; /* Espacio entre los botones */
       margin-top: 20px;
     }
     button {
@@ -78,8 +77,8 @@
   <form action="NuevaResenaServlet" method="POST">
     <label for="categoria">Tipo de Comida:</label>
     <select id="categoria" name="categoria" required>
-      <option value="chatarra">Comida Chatarra</option>
-      <option value="tradicional">Comida Tradicional</option>
+      <option value="chatarra">Chatarra</option>
+      <option value="tradicional">Tradicional</option>
     </select>
 
     <label for="restaurante">Nombre del Restaurante:</label>

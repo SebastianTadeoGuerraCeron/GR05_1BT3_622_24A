@@ -1,5 +1,6 @@
 <%@ page import="modelo.Resena" %>
 <%@ page import="java.util.List" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -69,43 +70,55 @@
         .resena p {
             margin: 5px 0;
         }
+        .boton-ampliar {
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .boton-ampliar:hover {
+            background-color: #007BB5;
+        }
     </style>
 </head>
 <body>
 <div class="container">
     <h1>Las Huequitas</h1>
 
-    <!-- Filtro y botón alineados horizontalmente -->
     <div class="filtro-boton">
-        <!-- Combo Box (Filtro) -->
         <div class="combo-box">
             <label for="filtro-comida">Filtrar por Comida:</label>
             <select id="filtro-comida" name="filtro-comida">
-                <option value="chatarra">Comida Chatarra</option>
-                <option value="tradicional">Comida Tradicional</option>
                 <option value="ALL">Todo</option>
+                <option value="chatarra">Chatarra</option>
+                <option value="tradicional">Tradicional</option>
+
             </select>
         </div>
 
-        <!-- Botón para agregar nueva reseña -->
         <div class="boton-resena">
             <button onclick="window.location.href='nuevaResena.jsp'">Nueva Reseña</button>
         </div>
     </div>
 
-    <!-- Aquí se listarán las reseñas del foro -->
     <div id="resenas">
         <h2>Reseñas</h2>
         <%
-            // Obtener la lista de reseñas desde el Servlet o Base de Datos
             List<Resena> listaResenas = (List<Resena>) request.getAttribute("listaResenas");
             if (listaResenas != null && !listaResenas.isEmpty()) {
                 for (Resena resena : listaResenas) {
         %>
         <div class="resena">
-            <h3><%= resena.getRestaurant() %> - <%= resena.getCategoria() %></h3>
+            <h3><%= resena.getRestaurant() %>  </h3>
+            <h3> Comida:<%= resena.getCategoria() %> </h3>
             <p><em><%= resena.getFechaPublicacion() %></em></p>
             <p><%= resena.getContenido() %></p>
+            <!-- Botón para ampliar la reseña -->
+            <button class="boton-ampliar" onclick="window.location.href='AmpliarResenaServlet?id=<%= resena.getId() %>'">Ampliar</button>
         </div>
         <%
             }
