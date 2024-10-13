@@ -154,6 +154,7 @@
                     <input type="hidden" name="action" value="like">
                     <button class="like-button" type="submit">Like</button>
                 </form>
+
                 <form action="ReactionServlet" method="post">
                     <input type="hidden" name="resenaId" value="<%= resena.getId() %>">
                     <input type="hidden" name="action" value="dislike">

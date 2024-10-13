@@ -1,15 +1,15 @@
 package com.example.gr05_1bt3_622_24a.servlets;
 
-
 import dao.ResenaJpaController;
+import modelo.Resena;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Resena;
-
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/ReactionServlet")
 public class ReactionServlet extends HttpServlet {
@@ -38,8 +38,14 @@ public class ReactionServlet extends HttpServlet {
             // Guardar los cambios en la base de datos
             resenaController.edit(resena);
 
-            // Redirigir de vuelta al foro para mostrar los cambios
-            response.sendRedirect("foro.jsp");
+            // Cargar la lista actualizada de reseñas desde la base de datos
+            List<Resena> listaResenas = resenaController.findResenaEntities();
+
+            // Establecer la lista de reseñas como atributo en la solicitud
+            request.setAttribute("listaResenas", listaResenas);
+
+            // Redirigir a foro.jsp con la lista actualizada de reseñas
+            request.getRequestDispatcher("/foro.jsp").forward(request, response);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -47,4 +53,3 @@ public class ReactionServlet extends HttpServlet {
         }
     }
 }
-
