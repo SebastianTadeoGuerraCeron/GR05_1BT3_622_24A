@@ -1,6 +1,7 @@
 package com.example.gr05_1bt3_622_24a.servlets;
 
 import dao.ResenaJpaController;
+import modelo.Foro;
 import modelo.Resena;
 import negocio.Filtro;
 
@@ -21,10 +22,13 @@ public class ForoServlet extends HttpServlet {
         // Obtener el filtro de comida
         String filtroCategoria = request.getParameter("filtro-comida");
 
-        // Obtener la lista de reseñas desde la base de datos
-        List<Resena> listaResenas = resenaJpaController.findResenaEntities();
+        // Crear una instancia de Foro
+        Foro foro = new Foro("Foro de Reseñas");
 
-        // Filtrar la lista de reseñas usando la clase Filtro
+        // Utilizar el método de la clase Foro para obtener todas las reseñas
+        List<Resena> listaResenas = foro.mostrarResenas(resenaJpaController);
+
+        // Filtrar la lista de reseñas usando la clase Filtro, si el filtro es válido
         listaResenas = Filtro.filtrarPorCategoria(listaResenas, filtroCategoria);
 
         // Pasar la lista de reseñas filtradas a foro.jsp

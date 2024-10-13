@@ -1,13 +1,14 @@
 package modelo;
 
+import dao.ResenaJpaController;
 import jakarta.persistence.*;
 import java.util.List;
 
-@Entity // Marca esta clase como una entidad JPA
+@Entity
 public class Foro {
 
-    @Id // Indica que este campo es la clave primaria
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // La clave será autogenerada
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -47,5 +48,11 @@ public class Foro {
 
     public void setListaResena(List<Resena> listaResena) {
         this.listaResena = listaResena;
+    }
+
+    // Método para obtener todas las reseñas
+    public List<Resena> mostrarResenas(ResenaJpaController resenaJpaController) {
+        // Retorna todas las reseñas desde la base de datos
+        return resenaJpaController.findResenaEntities();
     }
 }
