@@ -1,6 +1,7 @@
 package modelo;
 
 import jakarta.persistence.*;
+import dao.ResenaJpaController;
 import java.time.LocalDateTime;
 
 @Entity
@@ -69,5 +70,27 @@ public class Comentario {
 
     public void setResena(Resena resena) {
         this.resena = resena;
+    }
+
+    // Método para publicar un comentario en una reseña
+    public static Comentario publicarComentario(String contenido, Long idResena, ResenaJpaController resenaJpaController) throws Exception {
+        // Buscar la reseña asociada en la base de datos
+        Resena resena = resenaJpaController.findResena(idResena);
+
+        if (resena == null) {
+            throw new Exception("No se pudo encontrar la reseña.");
+        }
+
+        // Crear un nuevo comentario
+        Comentario nuevoComentario = new Comentario();
+        nuevoComentario.setContent(contenido);
+        nuevoComentario.setDatePublish(LocalDateTime.now());
+        nuevoComentario.setResena(resena);
+
+        // Agregar el comentario a la lista de comentarios de la reseña
+        resena.getListaComentarios().add(nuevoComentario);
+        resenaJpaController.edit(resena);
+
+        return nuevoComentario;
     }
 }
