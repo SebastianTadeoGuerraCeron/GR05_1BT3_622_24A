@@ -1,9 +1,6 @@
 package modelo;
 
 import jakarta.persistence.*;
-import negocio.ModeradorComplete;
-import negocio.ModeradorOfensivo;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +35,6 @@ public class Resena {
     }
 
     // Getters y Setters...
-
     public Long getId() {
         return id;
     }
@@ -121,17 +117,9 @@ public class Resena {
 
     // Método para crear una reseña
     public static Resena publicarResena(String categoria, String restaurante, String contenido) throws Exception {
-        ModeradorComplete moderadorComplete = new ModeradorComplete();
-        ModeradorOfensivo moderadorOfensivo = new ModeradorOfensivo();
-
-        // Verificación de campos completos
-        if (!moderadorComplete.verificarComplete(categoria, restaurante, contenido)) {
+        // Validación de contenido
+        if (categoria == null || restaurante == null || contenido == null) {
             throw new Exception("Todos los campos son obligatorios.");
-        }
-
-        // Verificación de contenido ofensivo
-        if (moderadorOfensivo.verificarOfensivo(contenido)) {
-            throw new Exception("La reseña contiene palabras ofensivas.");
         }
 
         // Crear la nueva reseña
@@ -142,6 +130,11 @@ public class Resena {
         nuevaResena.setFechaPublicacion(LocalDateTime.now());
 
         return nuevaResena;
+    }
+
+    // Método para mostrar los comentarios de la reseña
+    public List<Comentario> mostrarComentarios() {
+        return this.getListaComentarios();
     }
 
     // Métodos para aumentar y disminuir likes y dislikes

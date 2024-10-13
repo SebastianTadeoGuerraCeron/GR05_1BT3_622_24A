@@ -1,3 +1,4 @@
+<%@ page import="java.util.List" %>
 <%@ page import="modelo.Resena" %>
 <%@ page import="modelo.Comentario" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -66,6 +67,7 @@
     <h1>Ampliar Reseña</h1>
 
     <%
+        // Obtener la reseña desde los atributos del request
         Resena resenaAmpliada = (Resena) request.getAttribute("resena");
         if (resenaAmpliada != null) {
     %>
@@ -75,17 +77,20 @@
 
     <!-- Botón para agregar un comentario -->
     <button class="boton-agregar" onclick="window.location.href='agregarComentario.jsp?id=<%= resenaAmpliada.getId() %>'">Agregar Comentario</button>
-    <!-- Botón "Cancelar" en rojo -->
 
-    <form action="ForoServlet" method="GET" style="margin: 0;">
+    <!-- Botón "Cancelar" -->
+    <form action="ForoServlet" method="GET" style="display:inline;">
         <button type="submit" class="boton-cancelar">Cancelar</button>
     </form>
+
     <!-- Mostrar los comentarios asociados a la reseña -->
     <div class="comentarios">
         <h2>Comentarios</h2>
         <%
-            if (resenaAmpliada.getListaComentarios() != null && !resenaAmpliada.getListaComentarios().isEmpty()) {
-                for (Comentario comentario : resenaAmpliada.getListaComentarios()) {
+            // Verificar si hay comentarios asociados a la reseña
+            List<Comentario> listaComentarios = resenaAmpliada.getListaComentarios();
+            if (listaComentarios != null && !listaComentarios.isEmpty()) {
+                for (Comentario comentario : listaComentarios) {
         %>
         <div class="comentario">
             <p><strong>Publicado:</strong> <%= comentario.getDatePublish() %></p>

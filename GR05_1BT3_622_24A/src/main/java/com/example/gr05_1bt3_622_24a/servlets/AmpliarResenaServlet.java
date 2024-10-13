@@ -2,6 +2,7 @@ package com.example.gr05_1bt3_622_24a.servlets;
 
 import dao.ResenaJpaController;
 import modelo.Resena;
+import modelo.Comentario;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/AmpliarResenaServlet")
 public class AmpliarResenaServlet extends HttpServlet {
@@ -27,8 +29,14 @@ public class AmpliarResenaServlet extends HttpServlet {
                 Resena resenaAmpliada = resenaJpaController.findResena(idResena);
 
                 if (resenaAmpliada != null) {
-                    // Pasar la reseña al JSP
+                    // Obtener los comentarios de la reseña
+                    List<Comentario> listaComentarios = resenaAmpliada.mostrarComentarios();
+
+                    // Pasar la reseña y los comentarios al JSP
                     request.setAttribute("resena", resenaAmpliada);
+                    request.setAttribute("listaComentarios", listaComentarios);
+
+                    // Redirigir a verResena.jsp
                     request.getRequestDispatcher("/verResena.jsp").forward(request, response);
                 } else {
                     // Si no se encuentra la reseña, redirigir a foro.jsp con un mensaje de error
