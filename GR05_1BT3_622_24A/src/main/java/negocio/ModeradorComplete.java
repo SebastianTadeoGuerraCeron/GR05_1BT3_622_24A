@@ -8,4 +8,9 @@ public class ModeradorComplete {
                 restaurante != null && !restaurante.isEmpty() &&
                 contenido != null && !contenido.isEmpty();
     }
+
+    // Comentario Completo clase para verificar
+    public static boolean esComentarioValido(String comentario) {
+        return comentario != null && !comentario.trim().isEmpty();
+    }
 }

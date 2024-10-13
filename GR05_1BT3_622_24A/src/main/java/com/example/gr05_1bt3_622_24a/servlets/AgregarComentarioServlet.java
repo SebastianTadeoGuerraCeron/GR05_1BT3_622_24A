@@ -2,6 +2,7 @@ package com.example.gr05_1bt3_622_24a.servlets;
 
 import dao.ResenaJpaController;
 import modelo.Comentario;
+import negocio.ModeradorComplete;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +22,8 @@ public class AgregarComentarioServlet extends HttpServlet {
         String contenido = request.getParameter("contenido");
         String idResenaParam = request.getParameter("idResena");
 
-        if (idResenaParam == null || contenido == null || contenido.isEmpty()) {
+        // Verificar si el ID de la reseña o el contenido del comentario son inválidos
+        if (idResenaParam == null || !ModeradorComplete.esComentarioValido(contenido)) {
             // Si no se proporciona un ID o el contenido está vacío, redirigir con un mensaje de error
             request.setAttribute("error", "Debe proporcionar un contenido válido para el comentario.");
             request.getRequestDispatcher("/agregarComentario.jsp").forward(request, response);
