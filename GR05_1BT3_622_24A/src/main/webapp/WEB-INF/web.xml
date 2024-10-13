@@ -4,8 +4,9 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+    <!-- El punto de entrada de la aplicación es ahora el ForoServlet -->
     <welcome-file-list>
-        <welcome-file>foro.jsp</welcome-file>
+        <welcome-file>ForoServlet</welcome-file>
     </welcome-file-list>
 
 </web-app>

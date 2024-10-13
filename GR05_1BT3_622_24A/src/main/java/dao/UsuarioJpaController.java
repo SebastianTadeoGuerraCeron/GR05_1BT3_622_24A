@@ -19,7 +19,7 @@ public class UsuarioJpaController {
 
     // Constructor que crea el EntityManagerFactory
     public UsuarioJpaController() {
-        this.emf = Persistence.createEntityManagerFactory("JavaWebPoliParkPU");
+        this.emf = Persistence.createEntityManagerFactory("JavaWebLasHuequitas");
     }
 
     // Obtener el EntityManager

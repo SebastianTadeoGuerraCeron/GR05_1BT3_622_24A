@@ -19,7 +19,7 @@ public class ResenaJpaController {
 
     // Constructor que crea el EntityManagerFactory
     public ResenaJpaController() {
-        this.emf = Persistence.createEntityManagerFactory("JavaWebPoliParkPU");
+        this.emf = Persistence.createEntityManagerFactory("JavaWebLasHuequitas");
     }
 
     // Obtener el EntityManager

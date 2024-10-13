@@ -1,27 +1,33 @@
 package com.example.gr05_1bt3_622_24a.servlets;
 
+import dao.ResenaJpaController;
+import modelo.Resena;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Resena;
-
 import java.io.IOException;
 import java.util.logging.Logger;
-import java.util.ArrayList;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @WebServlet("/NuevaResenaServlet")
 public class NuevaResenaServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final Logger logger = Logger.getLogger(NuevaResenaServlet.class.getName());
-    private static final ArrayList<Resena> listaResenas = new ArrayList<>();
+
+    // Crear instancia del controlador JPA
+    private final ResenaJpaController resenaJpaController = new ResenaJpaController();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Obtener los parámetros del formulario
         String categoria = request.getParameter("categoria");
         String restaurante = request.getParameter("restaurante");
         String contenido = request.getParameter("contenido");
 
+        // Verificar que los campos obligatorios no estén vacíos
         if (categoria == null || categoria.isEmpty() ||
                 restaurante == null || restaurante.isEmpty() ||
                 contenido == null || contenido.isEmpty()) {
@@ -30,28 +36,44 @@ public class NuevaResenaServlet extends HttpServlet {
             return;
         }
 
+        // Verificar contenido ofensivo
         if (verificarContenidoOfensivo(contenido)) {
             request.setAttribute("error", "La reseña contiene palabras ofensivas.");
             request.getRequestDispatcher("/nuevaResena.jsp").forward(request, response);
             return;
         }
 
-        Resena nuevaResena = new Resena();
-        nuevaResena.setCategoria(categoria);
-        nuevaResena.setRestaurant(restaurante);
-        nuevaResena.setContenido(contenido);
-        nuevaResena.setFechaPublicacion(java.time.LocalDateTime.now());
+        try {
+            // Crear una nueva instancia de Resena
+            Resena nuevaResena = new Resena();
+            nuevaResena.setCategoria(categoria);
+            nuevaResena.setRestaurant(restaurante);
+            nuevaResena.setContenido(contenido);
+            nuevaResena.setFechaPublicacion(LocalDateTime.now());
 
-        listaResenas.add(nuevaResena);
+            // Persistir la reseña en la base de datos usando JPA
+            resenaJpaController.create(nuevaResena);
 
-        request.setAttribute("listaResenas", listaResenas);
-        request.getRequestDispatcher("/foro.jsp").forward(request, response);
+            // Obtener la lista actualizada de reseñas desde la base de datos
+            List<Resena> listaResenas = resenaJpaController.findResenaEntities();
 
-        logger.info("Setting listaResenas attribute with " + listaResenas.size() + " items.");
-        request.setAttribute("listaResenas", listaResenas);
-        request.getRequestDispatcher("/foro.jsp").forward(request, response);
+            // Pasar la lista de reseñas al JSP
+            request.setAttribute("listaResenas", listaResenas);
+
+            // Redirigir a foro.jsp
+            request.getRequestDispatcher("/foro.jsp").forward(request, response);
+
+            // Log para depuración
+            logger.info("Reseña agregada y persistida. Número total de reseñas: " + resenaJpaController.getResenaCount());
+
+        } catch (Exception e) {
+            logger.severe("Error al agregar reseña: " + e.getMessage());
+            request.setAttribute("error", "Ocurrió un error al agregar la reseña.");
+            request.getRequestDispatcher("/nuevaResena.jsp").forward(request, response);
+        }
     }
 
+    // Método para verificar contenido ofensivo
     private boolean verificarContenidoOfensivo(String contenido) {
         String[] palabrasOfensivas = {"malaPalabra1", "malaPalabra2"};
         for (String palabra : palabrasOfensivas) {
@@ -60,6 +82,5 @@ public class NuevaResenaServlet extends HttpServlet {
             }
         }
         return false;
-
     }
 }

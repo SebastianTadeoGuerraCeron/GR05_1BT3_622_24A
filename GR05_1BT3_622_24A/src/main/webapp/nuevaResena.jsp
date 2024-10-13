@@ -96,7 +96,7 @@
       </form>
 
       <!-- Formulario para el botón "Cancelar" -->
-      <form action="foro.jsp" method="GET" style="margin: 0;">
+      <form action="ForoServlet" method="GET" style="margin: 0;">
         <button type="submit" class="cancel-button">Cancelar</button>
       </form>
     </div>

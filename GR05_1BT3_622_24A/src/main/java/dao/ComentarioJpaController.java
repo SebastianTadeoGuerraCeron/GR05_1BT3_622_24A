@@ -23,7 +23,7 @@ public class ComentarioJpaController {
 
     // Constructor que crea el EntityManagerFactory
     public ComentarioJpaController() {
-        this.emf = Persistence.createEntityManagerFactory("JavaWebPoliParkPU");
+        this.emf = Persistence.createEntityManagerFactory("JavaWebLasHuequitas");
     }
 
     // Obtener el EntityManager
