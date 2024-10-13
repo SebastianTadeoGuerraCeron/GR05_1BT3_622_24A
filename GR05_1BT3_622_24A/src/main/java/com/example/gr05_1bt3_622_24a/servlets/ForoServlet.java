@@ -25,16 +25,16 @@ public class ForoServlet extends HttpServlet {
         // Crear una instancia de Foro
         Foro foro = new Foro("Foro de Reseñas");
 
-        // Utilizar el método de la clase Foro para obtener todas las reseñas
+        // Obtener la lista de reseñas desde la clase Foro
         List<Resena> listaResenas = foro.mostrarResenas(resenaJpaController);
 
-        // Filtrar la lista de reseñas usando la clase Filtro, si el filtro es válido
+        // Filtrar la lista de reseñas según la categoría seleccionada
         listaResenas = Filtro.filtrarPorCategoria(listaResenas, filtroCategoria);
 
-        // Pasar la lista de reseñas filtradas a foro.jsp
+        // Pasar la lista de reseñas filtradas al JSP
         request.setAttribute("listaResenas", listaResenas);
 
-        // Redirigir a foro.jsp
+        // Redirigir al foro.jsp
         request.getRequestDispatcher("/foro.jsp").forward(request, response);
     }
 }

@@ -3,6 +3,7 @@ package com.example.gr05_1bt3_622_24a.servlets;
 import dao.ResenaJpaController;
 import modelo.Comentario;
 import negocio.ModeradorComplete;
+import negocio.ModeradorOfensivo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,27 +11,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 @WebServlet("/AgregarComentarioServlet")
 public class AgregarComentarioServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    private static final Logger logger = Logger.getLogger(AgregarComentarioServlet.class.getName());
+
     private ResenaJpaController resenaJpaController = new ResenaJpaController();
+
+    // Instanciar el moderador para verificar contenido ofensivo
+    private ModeradorOfensivo moderadorOfensivo = new ModeradorOfensivo();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Obtener el contenido del comentario y el ID de la reseña
         String contenido = request.getParameter("contenido");
         String idResenaParam = request.getParameter("idResena");
 
-        // Verificar si el ID de la reseña o el contenido del comentario son inválidos
-        if (idResenaParam == null || !ModeradorComplete.esComentarioValido(contenido)) {
-            // Si no se proporciona un ID o el contenido está vacío, redirigir con un mensaje de error
-            request.setAttribute("error", "Debe proporcionar un contenido válido para el comentario.");
-            request.getRequestDispatcher("/agregarComentario.jsp").forward(request, response);
-            return;
-        }
-
         try {
+            // Verificar si el contenido del comentario contiene palabras ofensivas
+            if (moderadorOfensivo.verificarOfensivo(contenido)) {
+                // Si contiene palabras ofensivas, redirigir con un mensaje de error
+                throw new Exception("El comentario contiene palabras ofensivas. Por favor, revisa tu contenido.");
+            }
+
+            // Verificar si el ID de la reseña o el contenido del comentario son inválidos
+            if (idResenaParam == null || !ModeradorComplete.esComentarioValido(contenido)) {
+                throw new Exception("Debe proporcionar un contenido válido para el comentario.");
+            }
+
             Long idResena = Long.parseLong(idResenaParam);
 
             // Usar el método estático de la clase Comentario para publicar el comentario
@@ -40,9 +50,11 @@ public class AgregarComentarioServlet extends HttpServlet {
             request.setAttribute("resena", resenaJpaController.findResena(idResena));
             request.getRequestDispatcher("/verResena.jsp").forward(request, response);
 
+            logger.info("Comentario agregado con éxito a la reseña con ID: " + idResena);
+
         } catch (Exception e) {
-            e.printStackTrace();
-            // En caso de error, regresar a la página del comentario con un mensaje de error
+            // En caso de error (como una palabra ofensiva), regresar a la página con un mensaje de error
+            logger.severe("Error al agregar comentario: " + e.getMessage());
             request.setAttribute("error", e.getMessage());
             request.getRequestDispatcher("/agregarComentario.jsp").forward(request, response);
         }
