@@ -1,6 +1,9 @@
 package modelo;
 
 import jakarta.persistence.*;
+import negocio.ModeradorComplete;
+import negocio.ModeradorOfensivo;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +22,8 @@ public class Resena {
     private String categoria;
     private String contenido;
 
-    private int contadorLikes;   // Contador de Likes
-    private int contadorDislike; // Contador de Dislikes
+    private int contadorLikes;
+    private int contadorDislike;
 
     @ManyToOne
     @JoinColumn(name = "foro_id")
@@ -34,15 +37,7 @@ public class Resena {
         this.resenaID = UUID.randomUUID().toString(); // Genera un resenaID único y aleatorio
     }
 
-    // Getters y Setters
-
-    public String getResenaID() {
-        return resenaID;
-    }
-
-    public void setResenaID(String resenaID) {
-        this.resenaID = resenaID;
-    }
+    // Getters y Setters...
 
     public Long getId() {
         return id;
@@ -50,6 +45,14 @@ public class Resena {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getResenaID() {
+        return resenaID;
+    }
+
+    public void setResenaID(String resenaID) {
+        this.resenaID = resenaID;
     }
 
     public LocalDateTime getFechaPublicacion() {
@@ -116,7 +119,32 @@ public class Resena {
         this.listaComentarios = listaComentarios;
     }
 
-    // Métodos para actualizar los contadores de Likes y Dislikes
+    // Método para crear una reseña
+    public static Resena publicarResena(String categoria, String restaurante, String contenido) throws Exception {
+        ModeradorComplete moderadorComplete = new ModeradorComplete();
+        ModeradorOfensivo moderadorOfensivo = new ModeradorOfensivo();
+
+        // Verificación de campos completos
+        if (!moderadorComplete.verificarComplete(categoria, restaurante, contenido)) {
+            throw new Exception("Todos los campos son obligatorios.");
+        }
+
+        // Verificación de contenido ofensivo
+        if (moderadorOfensivo.verificarOfensivo(contenido)) {
+            throw new Exception("La reseña contiene palabras ofensivas.");
+        }
+
+        // Crear la nueva reseña
+        Resena nuevaResena = new Resena();
+        nuevaResena.setCategoria(categoria);
+        nuevaResena.setRestaurant(restaurante);
+        nuevaResena.setContenido(contenido);
+        nuevaResena.setFechaPublicacion(LocalDateTime.now());
+
+        return nuevaResena;
+    }
+
+    // Métodos para aumentar y disminuir likes y dislikes
     public void aumentarLikes() {
         this.contadorLikes++;
     }
