@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.logging.Logger;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @WebServlet("/NuevaResenaServlet")
 public class NuevaResenaServlet extends HttpServlet {
@@ -44,8 +45,9 @@ public class NuevaResenaServlet extends HttpServlet {
         }
 
         try {
-            // Crear una nueva instancia de Resena
+            // Crear una nueva instancia de Resena con un resenaID único
             Resena nuevaResena = new Resena();
+            nuevaResena.setResenaID(UUID.randomUUID().toString()); // Generar un resenaID aleatorio
             nuevaResena.setCategoria(categoria);
             nuevaResena.setRestaurant(restaurante);
             nuevaResena.setContenido(contenido);
@@ -60,11 +62,12 @@ public class NuevaResenaServlet extends HttpServlet {
             // Pasar la lista de reseñas al JSP
             request.setAttribute("listaResenas", listaResenas);
 
+
             // Redirigir a foro.jsp
             request.getRequestDispatcher("/foro.jsp").forward(request, response);
 
             // Log para depuración
-            logger.info("Reseña agregada y persistida. Número total de reseñas: " + resenaJpaController.getResenaCount());
+            logger.info("Reseña agregada y persistida con resenaID: " + nuevaResena.getResenaID() + ". Número total de reseñas: " + resenaJpaController.getResenaCount());
 
         } catch (Exception e) {
             logger.severe("Error al agregar reseña: " + e.getMessage());

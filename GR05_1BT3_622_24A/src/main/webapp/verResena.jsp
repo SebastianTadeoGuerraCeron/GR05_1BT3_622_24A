@@ -1,5 +1,4 @@
 <%@ page import="modelo.Resena" %>
-<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -54,21 +53,8 @@
     <h1>Ampliar Reseña</h1>
 
     <%
-        String idParam = request.getParameter("id");
-        if (idParam != null) {
-            try {
-                int idResena = Integer.parseInt(idParam);
-                List<Resena> listaResenas = (List<Resena>) request.getAttribute("listaResenas");
-
-                Resena resenaAmpliada = null;
-                for (Resena r : listaResenas) {
-                    if (r.getId() == idResena) {
-                        resenaAmpliada = r;
-                        break;
-                    }
-                }
-
-                if (resenaAmpliada != null) {
+        Resena resenaAmpliada = (Resena) request.getAttribute("resena");
+        if (resenaAmpliada != null) {
     %>
     <h3><%= resenaAmpliada.getRestaurant() %> - <%= resenaAmpliada.getCategoria() %></h3>
     <p><em><%= resenaAmpliada.getFechaPublicacion() %></em></p>
@@ -82,18 +68,6 @@
     } else {
     %>
     <p>La reseña no se ha encontrado.</p>
-    <button class="boton-cancelar" onclick="window.location.href='foro.jsp'">Cancelar</button>
-    <%
-        }
-    } catch (NumberFormatException e) {
-    %>
-    <p>El ID proporcionado no es válido.</p>
-    <button class="boton-cancelar" onclick="window.location.href='foro.jsp'">Cancelar</button>
-    <%
-        }
-    } else {
-    %>
-    <p>No se ha proporcionado un ID válido.</p>
     <button class="boton-cancelar" onclick="window.location.href='foro.jsp'">Cancelar</button>
     <%
         }

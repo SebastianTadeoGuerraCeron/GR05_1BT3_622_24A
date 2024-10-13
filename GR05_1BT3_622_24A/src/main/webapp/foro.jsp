@@ -89,9 +89,7 @@
 <div class="container">
     <h1>Las Huequitas</h1>
 
-    <!-- Filtro y botón alineados horizontalmente -->
     <div class="filtro-boton">
-        <!-- Combo Box (Filtro) -->
         <div class="combo-box">
             <label for="filtro-comida">Filtrar por Comida:</label>
             <select id="filtro-comida" name="filtro-comida">
@@ -101,17 +99,14 @@
             </select>
         </div>
 
-        <!-- Botón para agregar nueva reseña -->
         <div class="boton-resena">
             <button onclick="window.location.href='nuevaResena.jsp'">Nueva Reseña</button>
         </div>
     </div>
 
-    <!-- Aquí se listarán las reseñas del foro -->
     <div id="resenas">
         <h2>Reseñas</h2>
         <%
-            // Obtener la lista de reseñas desde el Servlet o Base de Datos
             List<Resena> listaResenas = (List<Resena>) request.getAttribute("listaResenas");
             if (listaResenas != null && !listaResenas.isEmpty()) {
                 for (Resena resena : listaResenas) {
@@ -121,7 +116,7 @@
             <p><em><%= resena.getFechaPublicacion() %></em></p>
             <p><%= resena.getContenido() %></p>
             <!-- Botón para ampliar la reseña -->
-            <button class="boton-ampliar" onclick="window.location.href='verResena.jsp?id=<%= resena.getId() %>'">Ampliar</button>
+            <button class="boton-ampliar" onclick="window.location.href='AmpliarResenaServlet?id=<%= resena.getId() %>'">Ampliar</button>
         </div>
         <%
             }

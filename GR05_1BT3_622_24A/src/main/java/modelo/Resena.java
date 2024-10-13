@@ -3,49 +3,35 @@ package modelo;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
-@Entity // Marca esta clase como una entidad JPA
+@Entity
 public class Resena {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String resenaID;
+    private String resenaID; // Identificador único
+
     private LocalDateTime fechaPublicacion;
     private String restaurant;
     private String categoria;
     private String contenido;
 
-    // Relación muchos a uno con Foro
     @ManyToOne
-    @JoinColumn(name = "foro_id") // Clave foránea en la tabla reseñas que apunta a la tabla foros
+    @JoinColumn(name = "foro_id")
     private Foro foro;
 
-    // Relación uno a muchos entre Reseña y Comentario
     @OneToMany(mappedBy = "resena", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comentario> listaComentarios;
 
     // Constructor sin argumentos
-    public Resena() {}
-
-    // Constructor con argumentos
-    public Resena(String resenaID, LocalDateTime fechaPublicacion, String restaurant, String categoria, String contenido, Foro foro) {
-        this.resenaID = resenaID;
-        this.fechaPublicacion = fechaPublicacion;
-        this.restaurant = restaurant;
-        this.categoria = categoria;
-        this.foro = foro;
+    public Resena() {
+        this.resenaID = UUID.randomUUID().toString(); // Genera un resenaID único y aleatorio
     }
 
-    // Getters y Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    // Getters y setters...
 
     public String getResenaID() {
         return resenaID;
@@ -53,6 +39,14 @@ public class Resena {
 
     public void setResenaID(String resenaID) {
         this.resenaID = resenaID;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public LocalDateTime getFechaPublicacion() {
@@ -79,13 +73,14 @@ public class Resena {
         this.categoria = categoria;
     }
 
+    public String getContenido() {
+        return contenido;
+    }
+
     public void setContenido(String contenido) {
         this.contenido = contenido;
     }
 
-    public String getContenido() {
-        return contenido;
-    }
     public Foro getForo() {
         return foro;
     }
@@ -101,7 +96,4 @@ public class Resena {
     public void setListaComentarios(List<Comentario> listaComentarios) {
         this.listaComentarios = listaComentarios;
     }
-
-
-
 }
