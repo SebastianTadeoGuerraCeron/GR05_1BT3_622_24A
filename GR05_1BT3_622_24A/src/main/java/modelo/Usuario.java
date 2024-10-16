@@ -36,13 +36,14 @@ public class Usuario {
         return nuevaResena;
     }
 
+    // Extraer método: Buscar reseña o lanzar excepción
+    private Resena findResenaOrThrow(Long idResena, ResenaJpaController resenaJpaController) throws Exception {
+        return resenaJpaController.findResena(idResena);
+    }
+
     // Método para agregar un comentario a una reseña
     public Comentario createComment(String contenido, Long idResena, ComentarioJpaController comentarioJpaController, ResenaJpaController resenaJpaController) throws Exception {
-        // Buscar la reseña correspondiente
-        Resena resena = resenaJpaController.findResena(idResena);
-        if (resena == null) {
-            throw new Exception("Reseña no encontrada");
-        }
+        Resena resena = findResenaOrThrow(idResena, resenaJpaController);
 
         // Crear y agregar el comentario a la reseña
         Comentario nuevoComentario = new Comentario();
@@ -54,23 +55,12 @@ public class Usuario {
         return nuevoComentario;
     }
 
+
     // Método para reaccionar (like o dislike) a una reseña
     public void reaccionar(ReactionType tipo, Long idResena, ResenaJpaController resenaJpaController, ReactionJpaController reactionJpaController, UsuarioJpaController usuarioJpaController) throws Exception {
-        // Buscar la reseña correspondiente
-        Resena resena = resenaJpaController.findResena(idResena);
-        if (resena == null) {
-            throw new Exception("Reseña no encontrada");
-        }
-
-        // Cargar el usuario desde la base de datos (no crear un nuevo Usuario)
-        Usuario usuarioPersistente = usuarioJpaController.findUsuario(this.getId());
-        if (usuarioPersistente == null) {
-            throw new Exception("Usuario no encontrado");
-        }
-
-        // Crear la reacción
-        Reaccion reaccion = new Reaccion(tipo, usuarioPersistente, resena);  // Asegurarse de que el Usuario sea persistente
-        reaccion.incrementReaction(); // Actualizar la reseña (incrementar likes o dislikes)
+        Resena resena = findResenaOrThrow(idResena, resenaJpaController);
+        Reaccion reaccion = new Reaccion(tipo, usuarioJpaController.findUsuario(this.getId()), resena); // Reemplazar temp con query
+        reaccion.incrementReaction();
         reactionJpaController.create(reaccion);
     }
 

@@ -5,6 +5,8 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.Persistence;
 import java.util.List;
+
+import modelo.Resena;
 import modelo.Usuario;
 import dao.exceptions.NonexistentEntityException;
 
@@ -82,6 +84,8 @@ public class UsuarioJpaController {
             }
         }
     }
+
+
 
     // Obtener todos los usuarios
     public List<Usuario> findUsuarioEntities() {
