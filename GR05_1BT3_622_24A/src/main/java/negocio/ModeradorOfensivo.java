@@ -1,7 +1,5 @@
 package negocio;
 
-// Clase para verificar contenido ofensivo
-// Clase para verificar contenido ofensivo
 public class ModeradorOfensivo {
     private static final String[] PALABRAS_OFENSIVAS = {
             "puta", "zorra", "mierda", "tonto", "estúpida", "idiota", "imbécil", "feo", "asqueroso", "burro", "tarado", "bobo",
@@ -10,14 +8,9 @@ public class ModeradorOfensivo {
             "vago", "chismoso", "hipócrita", "mentiroso", "rata", "traidor", "insolente",
             "ignorante", "payaso", "sucio", "maleducado", "necio", "desgraciado", "bastardo"
     };
+
     public boolean verificarOfensivo(String contenido) {
-        for (String palabra : PALABRAS_OFENSIVAS) {
-            if (contenido.toLowerCase().contains(palabra.toLowerCase())) {
-                return true;
-            }
-        }
-        return false;
+        String pattern = String.join("|", PALABRAS_OFENSIVAS);
+        return contenido.toLowerCase().matches(".\\b(" + pattern + ")\\b.");
     }
 }
-
-

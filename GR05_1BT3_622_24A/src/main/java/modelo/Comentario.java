@@ -1,8 +1,14 @@
 package modelo;
 
-import jakarta.persistence.*;
-import dao.ResenaJpaController;
 import java.time.LocalDateTime;
+
+import dao.ResenaJpaController;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Comentario {
@@ -15,12 +21,11 @@ public class Comentario {
     private String content;
     private LocalDateTime datePublish;
 
-    // Relación muchos a uno con Reseña
     @ManyToOne
-    @JoinColumn(name = "resena_id") // Clave foránea que apunta a la tabla reseñas
+    @JoinColumn(name = "resena_id")
     private Resena resena;
 
-    // Constructor sin argumentos
+
     public Comentario() {}
 
     // Constructor con argumentos
@@ -72,25 +77,33 @@ public class Comentario {
         this.resena = resena;
     }
 
-    // Método para publicar un comentario en una reseña
-    public static Comentario publicarComentario(String contenido, Long idResena, ResenaJpaController resenaJpaController) throws Exception {
-        // Buscar la reseña asociada en la base de datos
-        Resena resena = resenaJpaController.findResena(idResena);
+    public static Comentario publicarComentario(String contenido, Long idResena,
+                                                ResenaJpaController resenaJpaController) throws Exception {
+        Resena resena = obtenerResena(idResena, resenaJpaController);
+        Comentario nuevoComentario = crearComentario(contenido, resena);
+        actualizarResena(resena, nuevoComentario, resenaJpaController);
+        return nuevoComentario;
+    }
 
+    private static Resena obtenerResena(Long idResena, ResenaJpaController resenaJpaController) throws Exception {
+        Resena resena = resenaJpaController.findResena(idResena);
         if (resena == null) {
             throw new Exception("No se pudo encontrar la reseña.");
         }
+        return resena;
+    }
 
-        // Crear un nuevo comentario
+    private static Comentario crearComentario(String contenido, Resena resena) {
         Comentario nuevoComentario = new Comentario();
         nuevoComentario.setContent(contenido);
         nuevoComentario.setDatePublish(LocalDateTime.now());
         nuevoComentario.setResena(resena);
+        return nuevoComentario;
+    }
 
-        // Agregar el comentario a la lista de comentarios de la reseña
+    private static void actualizarResena(Resena resena, Comentario nuevoComentario,
+                                         ResenaJpaController resenaJpaController) throws Exception {
         resena.getListaComentarios().add(nuevoComentario);
         resenaJpaController.edit(resena);
-
-        return nuevoComentario;
     }
 }
