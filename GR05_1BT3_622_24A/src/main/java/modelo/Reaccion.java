@@ -55,24 +55,30 @@ public class Reaccion {
         this.resena = resena;
     }
 
-    // Método para incrementar una reacción
-    public void incrementReaction() {
+
+    private void actualizarReaccion(boolean isIncrement) {
         if (this.type == ReactionType.LIKE) {
-            this.resena.aumentarLikes();
+            if (isIncrement) {
+                this.resena.aumentarLikes();
+            } else {
+                this.resena.disminuirLikes();
+            }
         } else if (this.type == ReactionType.DISLIKE) {
-            this.resena.aumentarDislikes();
+            if (isIncrement) {
+                this.resena.aumentarDislikes();
+            } else {
+                this.resena.disminuirDislikes();
+            }
         }
-        System.out.println("Reacción " + type + " incrementada.");
+        System.out.println("Reacción " + type + (isIncrement ? " incrementada." : " eliminada."));
     }
 
-    // Método para eliminar una reacción
+    public void incrementReaction() {
+        actualizarReaccion(true);
+    }
+
     public void removeReaction() {
-        if (this.type == ReactionType.LIKE) {
-            this.resena.disminuirLikes();
-        } else if (this.type == ReactionType.DISLIKE) {
-            this.resena.disminuirDislikes();
-        }
-        System.out.println("Reacción " + type + " eliminada.");
+        actualizarReaccion(false);
     }
 
     // Getters y Setters para el ID
@@ -84,4 +90,3 @@ public class Reaccion {
         this.id = id;
     }
 }
-

@@ -24,32 +24,37 @@ public class ReactionServlet extends HttpServlet {
         try {
             // Buscar la reseña
             Resena resena = resenaController.findResena(resenaId);
-
-            // Actualizar los contadores de "Likes" o "Dislikes"
-            if ("like".equals(action)) {
-                resena.aumentarLikes();  // Incrementa el contador de Likes
-            } else if ("dislike".equals(action)) {
-                resena.aumentarDislikes();  // Incrementa el contador de Dislikes
-            } else {
-                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Acción no válida");
-                return;
-            }
-
-            // Guardar los cambios en la base de datos
-            resenaController.edit(resena);
-
-            // Cargar la lista actualizada de reseñas desde la base de datos
-            List<Resena> listaResenas = resenaController.findResenaEntities();
-
-            // Establecer la lista de reseñas como atributo en la solicitud
-            request.setAttribute("listaResenas", listaResenas);
-
-            // Redirigir a foro.jsp con la lista actualizada de reseñas
-            request.getRequestDispatcher("/foro.jsp").forward(request, response);
+            if (UpdateReaccion(response, action, resena)) return;
+            CargarResena(request, response);
 
         } catch (Exception e) {
-            e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error al procesar la reacción");
+            ErrroresReact(response, e);
         }
+    }
+
+    private static void ErrroresReact(HttpServletResponse response, Exception e) throws IOException {
+        e.printStackTrace();
+        response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error al procesar la reacción");
+    }
+
+    private void CargarResena(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        List<Resena> listaResenas = resenaController.findResenaEntities();
+        request.setAttribute("listaResenas", listaResenas);
+        request.getRequestDispatcher("/foro.jsp").forward(request, response);
+    }
+
+    private boolean UpdateReaccion(HttpServletResponse response, String action, Resena resena) throws Exception {
+        if ("like".equals(action)) {
+            resena.aumentarLikes();
+        } else if ("dislike".equals(action)) {
+            resena.aumentarDislikes();
+        } else {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Acción no válida");
+            return true;
+        }
+
+        resenaController.edit(resena);
+        return false;
     }
 }
