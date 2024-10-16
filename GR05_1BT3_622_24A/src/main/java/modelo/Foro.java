@@ -2,6 +2,8 @@ package modelo;
 
 import dao.ResenaJpaController;
 import jakarta.persistence.*;
+import negocio.Filtro;
+
 import java.util.List;
 
 @Entity
@@ -55,4 +57,5 @@ public class Foro {
         // Retorna todas las reseñas desde la base de datos
         return resenaJpaController.findResenaEntities();
     }
+
 }

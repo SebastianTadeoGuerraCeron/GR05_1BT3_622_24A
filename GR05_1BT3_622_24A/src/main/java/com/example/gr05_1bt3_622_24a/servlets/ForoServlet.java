@@ -22,14 +22,8 @@ public class ForoServlet extends HttpServlet {
         // Obtener el filtro de comida
         String filtroCategoria = request.getParameter("filtro-comida");
 
-        // Crear una instancia de Foro
-        Foro foro = new Foro("Foro de Reseñas");
-
-        // Obtener la lista de reseñas desde la clase Foro
-        List<Resena> listaResenas = foro.mostrarResenas(resenaJpaController);
-
-        // Filtrar la lista de reseñas según la categoría seleccionada
-        listaResenas = Filtro.filtrarPorCategoria(listaResenas, filtroCategoria);
+        // Obtener y filtrar la lista de reseñas
+        List<Resena> listaResenas = Filtro.obtenerYFiltrarResenas(filtroCategoria, resenaJpaController);
 
         // Pasar la lista de reseñas filtradas al JSP
         request.setAttribute("listaResenas", listaResenas);

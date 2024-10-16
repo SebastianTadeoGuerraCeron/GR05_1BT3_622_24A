@@ -1,17 +1,26 @@
 package negocio;
 
+import dao.ResenaJpaController;
+import modelo.Foro;
 import modelo.Resena;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Filtro {
 
-    /**
-     * Filtra la lista de reseñas por categoría.
-     * @param listaResenas La lista completa de reseñas.
-     * @param categoria La categoría seleccionada para el filtro.
-     * @return Una lista filtrada de reseñas, o la lista completa si la categoría es "ALL".
-     */
+    public static List<Resena> obtenerYFiltrarResenas(String filtroCategoria, ResenaJpaController resenaJpaController) {
+        // Crear una instancia de Foro
+        Foro foro = new Foro("Foro de Reseñas");
+
+        // Obtener la lista de reseñas desde la clase Foro
+        List<Resena> listaResenas = foro.mostrarResenas(resenaJpaController);
+
+        // Filtrar la lista de reseñas según la categoría seleccionada
+        String categoriaFiltroT = filtroCategoria; // Use a local variable instead of modifying the parameter
+        return filtrarPorCategoria(listaResenas, categoriaFiltroT);
+    }
+
     public static List<Resena> filtrarPorCategoria(List<Resena> listaResenas, String categoria) {
         if (categoria == null || categoria.equalsIgnoreCase("ALL")) {
             return listaResenas; // Si es "ALL" o nulo, devuelve la lista completa.
@@ -21,7 +30,4 @@ public class Filtro {
                 .filter(resena -> resena.getCategoria().equalsIgnoreCase(categoria))
                 .collect(Collectors.toList()); // Filtra por categoría.
     }
-
 }
-
-
