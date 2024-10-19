@@ -58,7 +58,7 @@ class RecetaTest {
     }
 
     @Test
-    public void testEliminarComentarioDeReceta() {
+    public void given_receta_when_eliminarComentario_then_quitarComentarioReceta() {
         // Crear una receta
         Receta receta = new Receta("Tarta de manzana", "Postre", "Manzana, azúcar, harina", "Mezclar y hornear");
 
