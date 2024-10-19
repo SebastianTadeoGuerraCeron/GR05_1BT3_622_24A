@@ -2,6 +2,7 @@ package negocio;
 
 import dao.ResenaJpaController;
 import modelo.Foro;
+import modelo.Receta;
 import modelo.Resena;
 
 import java.util.List;
@@ -29,5 +30,15 @@ public class Filtro {
         return listaResenas.stream()
                 .filter(resena -> resena.getCategoria().equalsIgnoreCase(categoria))
                 .collect(Collectors.toList()); // Filtra por categoría.
+    }
+
+    public static List<Receta> filtrarPorTipoReceta(List<Receta> listaRecetas, String tipoReceta) {
+        if (tipoReceta == null || tipoReceta.equalsIgnoreCase("ALL")) {
+            return listaRecetas; // Si es "ALL" o nulo, devuelve la lista completa.
+        }
+
+        return listaRecetas.stream()
+                .filter(receta -> receta.getTipoReceta().equalsIgnoreCase(tipoReceta))
+                .collect(Collectors.toList()); // Filtra por tipo de receta.
     }
 }
