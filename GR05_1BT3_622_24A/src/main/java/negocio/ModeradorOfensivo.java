@@ -26,4 +26,6 @@ public class ModeradorOfensivo {
         Matcher matcher = PATRON_OFENSIVO.matcher(contenido);
         return matcher.find();  // Devuelve true si encuentra una palabra ofensiva
     }
+
+
 }

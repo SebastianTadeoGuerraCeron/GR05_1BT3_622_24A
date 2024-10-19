@@ -89,6 +89,10 @@ public class Receta {
                 moderador.verificarOfensivo(this.preparacion);
     }
 
+    public boolean verificarContenidoMax200 () {
+        return this.nombre.length() <= 200 && this.tipoReceta.length() <= 200 && this.ingredientes.length() <= 200 && this.preparacion.length()<=200;
+}
+
     @Override
     public String toString() {
         return "Receta{" +
