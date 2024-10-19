@@ -29,8 +29,12 @@
             align-items: center;
             margin-bottom: 20px;
         }
+        .combo-box, .boton-resena {
+            display: flex;
+            align-items: center;
+        }
         .combo-box {
-            width: 200px;
+            width: 70%;
         }
         label {
             font-weight: bold;
@@ -43,7 +47,7 @@
             border-radius: 5px;
             font-size: 16px;
         }
-        .boton-resena button {
+        .boton-resena button, .boton-recetas button {
             background-color: #4CAF50;
             color: white;
             border: none;
@@ -51,8 +55,9 @@
             cursor: pointer;
             border-radius: 10px;
             font-size: 16px;
+            margin-left: 10px; /* Añadir espacio entre el botón y el select */
         }
-        .boton-resena button:hover {
+        .boton-resena button:hover, .boton-recetas button:hover {
             background-color: #45a049;
         }
         #resenas {
@@ -122,10 +127,16 @@
                     <option value="tradicional" <%= "tradicional".equals(request.getParameter("filtro-comida")) ? "selected" : "" %>>Tradicional</option>
                 </select>
             </form>
+
+            <!-- Botón Nueva Reseña al lado del combo de selección -->
+            <div class="boton-resena">
+                <button onclick="window.location.href='nuevaResena.jsp'">Nueva Reseña</button>
+            </div>
         </div>
 
-        <div class="boton-resena">
-            <button onclick="window.location.href='nuevaResena.jsp'">Nueva Reseña</button>
+        <!-- Nuevo botón para "Recetas" -->
+        <div class="boton-recetas">
+            <button onclick="window.location.href='foroReceta.jsp'">Recetas</button>
         </div>
     </div>
 
