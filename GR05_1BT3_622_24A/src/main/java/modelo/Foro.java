@@ -4,6 +4,7 @@ import dao.ResenaJpaController;
 import jakarta.persistence.*;
 import negocio.Filtro;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,7 +22,7 @@ public class Foro {
 
     // Relación uno a muchos entre Foro y Receta
     @OneToMany(mappedBy = "foro", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Receta> listaReceta;
+    private List<Receta> listaReceta = new ArrayList<>();
 
     // Constructor sin argumentos
     public Foro() {}
@@ -68,6 +69,14 @@ public class Foro {
     public List<Resena> mostrarResenas(ResenaJpaController resenaJpaController) {
         // Retorna todas las reseñas desde la base de datos
         return resenaJpaController.findResenaEntities();
+    }
+
+    @Override
+    public String toString() {
+        return "Foro{" +
+                "nombre='" + name + '\'' +
+                ", listaReceta=" + listaReceta +
+                '}';
     }
 
 }

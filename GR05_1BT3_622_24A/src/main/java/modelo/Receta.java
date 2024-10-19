@@ -3,6 +3,7 @@ package modelo;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class Receta {
@@ -28,6 +29,34 @@ public class Receta {
     }
     public Receta() {
     }
+
+    public List<Receta> publicarReceta(Foro foro) {
+        this.foro = foro;
+        if(foro != null) {
+            foro.getListaReceta().add(this);
+            return foro.getListaReceta();
+        }
+        return null;
+    }
+
+    public List<Receta> eliminarReceta(Foro foro) {
+       if(foro != null) {
+           foro.getListaReceta().remove(this);
+           return foro.getListaReceta();
+       }
+         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Receta{" +
+                "nombre='" + nombre + '\'' +
+                ", tipoReceta='" + tipoReceta + '\'' +
+                ", ingredientes='" + ingredientes + '\'' +
+                ", instrucciones='" + preparacion + '\'' +
+                '}';
+    }
+
 
     // Getters y Setters
     public Long getId() {
@@ -76,24 +105,6 @@ public class Receta {
     public void setForo(Foro foro) {
         this.foro = foro;
     }
-
-    public static Receta publicarReceta(String nombre, String tipoReceta, String ingredientes, String preparacion) throws Exception {
-
-        Receta nuevaReceta = new Receta();
-        nuevaReceta.setNombre(nombre);
-        nuevaReceta.setTipoReceta(tipoReceta);
-        nuevaReceta.setIngredientes(ingredientes);
-        nuevaReceta.setPreparacion(preparacion);
-
-        return nuevaReceta;
-
-    }
-
-
-
-
-
-
 
 
 }
