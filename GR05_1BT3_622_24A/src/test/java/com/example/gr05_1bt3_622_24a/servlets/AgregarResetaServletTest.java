@@ -25,7 +25,7 @@ class AgregarResetaServletTest {
         HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
         HttpServletResponse response = Mockito.mock(HttpServletResponse.class);
         ResetaJpaController resetaJpaController = Mockito.mock(ResetaJpaController.class);
-        AgregarResetaServlet agregarResetaServlet = new AgregarResetaServlet(resetaJpaController);
+        AgregarRecetaServlet agregarResetaServlet = new AgregarRecetaServlet(resetaJpaController);
         StringWriter stringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(stringWriter);
         when(response.getWriter()).thenReturn(printWriter);

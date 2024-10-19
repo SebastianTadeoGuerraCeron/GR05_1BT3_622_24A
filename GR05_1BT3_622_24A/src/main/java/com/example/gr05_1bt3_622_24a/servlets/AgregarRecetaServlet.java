@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/AgregarResetaServlet")
-public class AgregarResetaServlet extends HttpServlet {
+public class AgregarRecetaServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private ResetaJpaController resetaJpaController;
 
-    public AgregarResetaServlet(ResetaJpaController resetaJpaController) {
+    public AgregarRecetaServlet(ResetaJpaController resetaJpaController) {
         this.resetaJpaController = resetaJpaController;
     }
 
