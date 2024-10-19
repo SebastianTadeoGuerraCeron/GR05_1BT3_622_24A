@@ -40,7 +40,7 @@ public class AgregarComentarioRecetaServletTest {
     }
 
     @Test
-    public void testAgregarComentarioExitosamente() throws ServletException, IOException {
+    public void given_receta_when_AgregarComentarioReceta_then_nuevoComentarioReceta() throws ServletException, IOException {
         // Simular los parámetros enviados en la solicitud
         when(request.getParameter("contenido")).thenReturn("Delicious recipe!");
         when(request.getParameter("idReceta")).thenReturn("1");
@@ -64,7 +64,7 @@ public class AgregarComentarioRecetaServletTest {
     }
 
     @Test
-    public void testAgregarComentarioFallaPorContenidoInvalido() throws ServletException, IOException {
+    public void given_receta_when_AgregarComentarioReceta_then_ComentarioVacio() throws ServletException, IOException {
         // Simular un contenido de comentario inválido (vacío)
         when(request.getParameter("contenido")).thenReturn("");
 
