@@ -83,6 +83,28 @@
         .boton-ampliar:hover {
             background-color: #007BB5;
         }
+        .like-dislike-buttons {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px; /* Espacio entre los botones */
+            margin-top: 10px;
+        }
+        .like-button, .dislike-button {
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+        .like-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .dislike-button {
+            background-color: #f44336;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -121,6 +143,25 @@
             <h3>Comida: <%= resena.getCategoria() %></h3>
             <p><em><%= resena.getFechaPublicacion() %></em></p>
             <p><%= resena.getContenido() %></p>
+
+            <!-- Mostrar la cantidad de Likes y Dislikes -->
+            <p>Likes: <%= resena.getContadorLikes() %> | Dislikes: <%= resena.getContadorDislike() %></p>
+
+            <!-- Botones para dar Like y Dislike -->
+            <div class="like-dislike-buttons">
+                <form action="ReactionServlet" method="post">
+                    <input type="hidden" name="resenaId" value="<%= resena.getId() %>">
+                    <input type="hidden" name="action" value="like">
+                    <button class="like-button" type="submit">Like</button>
+                </form>
+
+                <form action="ReactionServlet" method="post">
+                    <input type="hidden" name="resenaId" value="<%= resena.getId() %>">
+                    <input type="hidden" name="action" value="dislike">
+                    <button class="dislike-button" type="submit">Dislike</button>
+                </form>
+            </div>
+
             <!-- Botón para ampliar la reseña -->
             <button class="boton-ampliar" onclick="window.location.href='AmpliarResenaServlet?id=<%= resena.getId() %>'">Ampliar</button>
         </div>

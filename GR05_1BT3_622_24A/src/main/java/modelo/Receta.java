@@ -3,7 +3,9 @@ package modelo;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import modelo.ComentarioReceta;
 
 @Entity
 public class Receta {
@@ -16,7 +18,9 @@ public class Receta {
     private String tipoReceta;
     private String ingredientes;
     private String preparacion;
-
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "receta_id")
+    private List<ComentarioReceta> comentarios = new ArrayList<>();
     @ManyToOne
     @JoinColumn(name = "foro_id")
     private Foro foro;
@@ -46,6 +50,21 @@ public class Receta {
        }
          return null;
     }
+
+    // Métodos para agregar y obtener comentarios
+    public void agregarComentario(ComentarioReceta comentario) {
+        comentarios.add(comentario);
+    }
+
+    // Método para eliminar un comentario por referencia
+    public boolean eliminarComentario(ComentarioReceta comentario) {
+        return comentarios.remove(comentario);
+    }
+
+    public List<ComentarioReceta> getComentarios() {
+        return comentarios;
+    }
+
 
     @Override
     public String toString() {

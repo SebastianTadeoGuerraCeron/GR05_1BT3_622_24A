@@ -6,7 +6,7 @@
 
     <!-- El punto de entrada de la aplicación es ahora el ForoServlet -->
     <welcome-file-list>
-        <welcome-file>foro.jsp</welcome-file>
+        <welcome-file>ForoServlet</welcome-file>
     </welcome-file-list>
 
 </web-app>

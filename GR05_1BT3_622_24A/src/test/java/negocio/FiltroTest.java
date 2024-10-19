@@ -40,7 +40,7 @@ class FiltroTest {
     }
 
     @Test
-    public void testFiltrarPorNombre() {
+    public void givenListOfRecetas_whenFiltrarPorNombreReceta_thenReturnFilteredRecetas() {
         // Crear una lista simulada de recetas
         List<Receta> recetas = new ArrayList<>();
         recetas.add(new Receta("Tarta de chocolate", "Postre", "Chocolate, harina, azúcar", "Mezclar y hornear"));
