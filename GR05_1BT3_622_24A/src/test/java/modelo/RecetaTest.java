@@ -82,30 +82,43 @@ class RecetaTest {
     }
 
     @Test
-    public void given_receta_when_agregarLike_or_agregarDislike_then_agregarReaction() {
+    public void given_receta_when_agregarLike_then_agregarReaction() {
         // Crear una receta
         Receta receta = new Receta("Tarta de manzana", "Postre", "Manzana, azúcar, harina", "Mezclar y hornear");
 
-        // Inicialmente, la receta no debe tener likes ni dislikes
+        // Inicialmente, la receta no debe tener likes
         assertEquals(0, receta.getReacciones().getLikes());
-        assertEquals(0, receta.getReacciones().getDislikes());
 
-        // Agregar 3 likes y 1 dislike
+        // Agregar 3 likes
         receta.getReacciones().agregarLike();
         receta.getReacciones().agregarLike();
         receta.getReacciones().agregarLike();
-        receta.getReacciones().agregarDislike();
 
-        // Verificar que los likes y dislikes se incrementaron correctamente
+        // Verificar que los likes se incrementaron correctamente
         assertEquals(3, receta.getReacciones().getLikes());
-        assertEquals(1, receta.getReacciones().getDislikes());
 
         // Restar un like y verificar
         receta.getReacciones().restarLike();
         assertEquals(2, receta.getReacciones().getLikes());
+    }
+
+    @Test
+    public void given_receta_when_agregarDislike_then_agregarReaction() {
+        // Crear una receta
+        Receta receta = new Receta("Tarta de manzana", "Postre", "Manzana, azúcar, harina", "Mezclar y hornear");
+
+        // Inicialmente, la receta no debe tener dislikes
+        assertEquals(0, receta.getReacciones().getDislikes());
+
+        // Agregar 2 dislikes
+        receta.getReacciones().agregarDislike();
+        receta.getReacciones().agregarDislike();
+
+        // Verificar que los dislikes se incrementaron correctamente
+        assertEquals(2, receta.getReacciones().getDislikes());
 
         // Restar un dislike y verificar
         receta.getReacciones().restarDislike();
-        assertEquals(0, receta.getReacciones().getDislikes());
+        assertEquals(1, receta.getReacciones().getDislikes());
     }
 }
