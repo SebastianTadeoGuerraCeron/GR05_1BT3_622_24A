@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.ComentarioReceta;
+import negocio.ModeradorOfensivo;
 
 @Entity
 public class Receta {
@@ -31,6 +32,8 @@ public class Receta {
     private ReaccionReceta reacciones = new ReaccionReceta();
 
 
+    private static final ModeradorOfensivo moderador = new ModeradorOfensivo();
+
     public Receta(String nombre, String tipoReceta, String ingredientes, String preparacion) {
         this.nombre = nombre;
         this.ingredientes = ingredientes;
@@ -50,11 +53,11 @@ public class Receta {
     }
 
     public List<Receta> eliminarReceta(Foro foro) {
-       if(foro != null) {
-           foro.getListaReceta().remove(this);
-           return foro.getListaReceta();
-       }
-         return null;
+        if(foro != null) {
+            foro.getListaReceta().remove(this);
+            return foro.getListaReceta();
+        }
+        return null;
     }
 
     // Métodos para agregar y obtener comentarios
@@ -77,6 +80,13 @@ public class Receta {
 
     public void setReacciones(ReaccionReceta reacciones) {
         this.reacciones = reacciones;
+    }
+
+    // Método para verificar si la receta contiene palabras ofensivas
+    public boolean verificarContenidoOfensivo() {
+        // Verifica si los ingredientes o la preparación contienen palabras ofensivas
+        return moderador.verificarOfensivo(this.nombre) || moderador.verificarOfensivo(this.tipoReceta) || moderador.verificarOfensivo(this.ingredientes) ||
+                moderador.verificarOfensivo(this.preparacion);
     }
 
     @Override

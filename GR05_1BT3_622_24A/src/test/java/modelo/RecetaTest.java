@@ -3,6 +3,8 @@ package modelo;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.List;
 
@@ -121,4 +123,25 @@ class RecetaTest {
         receta.getReacciones().restarDislike();
         assertEquals(1, receta.getReacciones().getDislikes());
     }
+
+
+    @ParameterizedTest
+    @CsvSource({
+            "'Torta de rata', 'Harina', 'Mezclar todo y hornear'",  // Palabra ofensiva en el nombre
+            "'Torta', 'Harina de rata', 'Mezclar todo y hornear'",  // Palabra ofensiva en los ingredientes
+            "'Torta', 'Harina', 'Mezclar todo como un idiota'",  // Palabra ofensiva en la preparación
+            "'Torta estúpida', 'Harina', 'Mezclar todo y hornear'"  // Palabra ofensiva en el nombre
+    })
+    public void givenRecetaConPalabrasOfensivas_whenVerificarContenidoOfensivo_thenRetornaTrue(String nombre, String ingredientes, String preparacion) {
+        // Arrange: Crear una receta con palabras ofensivas en diferentes partes
+        Receta receta = new Receta(nombre, "Postre", ingredientes, preparacion);
+
+        // Act: Verificar si la receta contiene palabras ofensivas
+        boolean resultado = receta.verificarContenidoOfensivo();
+
+        // Assert: El resultado debe ser true porque alguna parte contiene una palabra ofensiva
+        assertTrue(resultado);
+    }
+
+
 }
