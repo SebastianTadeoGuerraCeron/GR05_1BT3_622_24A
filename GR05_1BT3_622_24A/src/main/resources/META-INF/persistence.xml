@@ -12,6 +12,7 @@
         <class>modelo.Comentario</class>
         <class>modelo.Usuario</class>
         <class>modelo.Reaccion</class>
+        <class>modelo.Receta</class>
 
         <!-- Configuración de la base de datos -->
         <properties>

@@ -19,6 +19,10 @@ public class Foro {
     @OneToMany(mappedBy = "foro", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Resena> listaResena;
 
+    // Relación uno a muchos entre Foro y Receta
+    @OneToMany(mappedBy = "foro", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Receta> listaReceta;
+
     // Constructor sin argumentos
     public Foro() {}
 
@@ -50,6 +54,14 @@ public class Foro {
 
     public void setListaResena(List<Resena> listaResena) {
         this.listaResena = listaResena;
+    }
+
+    public List<Receta> getListaReceta() {
+        return listaReceta;
+    }
+
+    public void setListaReceta(List<Receta> listaReceta) {
+        this.listaReceta = listaReceta;
     }
 
     // Método para obtener todas las reseñas
