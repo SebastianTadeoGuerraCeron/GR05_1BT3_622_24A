@@ -82,7 +82,7 @@ class RecetaTest {
     }
 
     @Test
-    public void testAgregarLikeYDislikeConReaccionReceta() {
+    public void given_receta_when_agregarLike_or_agregarDislike_then_agregarReaction() {
         // Crear una receta
         Receta receta = new Receta("Tarta de manzana", "Postre", "Manzana, azúcar, harina", "Mezclar y hornear");
 
