@@ -41,4 +41,33 @@ public class Filtro {
                 .filter(receta -> receta.getTipoReceta().equalsIgnoreCase(tipoReceta))
                 .collect(Collectors.toList()); // Filtra por tipo de receta.
     }
+
+    public static List<Receta> obtenerYFiltrarRecetasPorNombre(String filtroNombre, List<Receta> listaRecetas) {
+        // Filtrar la lista de recetas según las palabras en el nombre
+        return filtrarPorNombre(listaRecetas, filtroNombre);
+    }
+
+    public static List<Receta> filtrarPorNombre(List<Receta> listaRecetas, String filtroNombre) {
+        if (filtroNombre == null || filtroNombre.trim().isEmpty()) {
+            return listaRecetas; // Si no hay filtro de nombre, devuelve la lista completa.
+        }
+
+        // Dividir el filtro en palabras clave para buscar coincidencias parciales
+        String[] palabrasClave = filtroNombre.toLowerCase().split("\\s+");
+
+        // Filtrar las recetas que contengan alguna de las palabras clave en su nombre
+        return listaRecetas.stream()
+                .filter(receta -> {
+                    String nombreReceta = receta.getNombre().toLowerCase();
+                    // Comprobar si el nombre de la receta contiene alguna de las palabras clave
+                    for (String palabra : palabrasClave) {
+                        if (nombreReceta.contains(palabra)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                })
+                .collect(Collectors.toList());
+    }
+
 }

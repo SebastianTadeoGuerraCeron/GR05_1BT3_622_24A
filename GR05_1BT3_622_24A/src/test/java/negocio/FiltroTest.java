@@ -5,6 +5,7 @@ import modelo.Receta;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -38,4 +39,30 @@ class FiltroTest {
         assertEquals("Torta de chocolate", postres.get(0).getNombre());
     }
 
+    @Test
+    public void testFiltrarPorNombre() {
+        // Crear una lista simulada de recetas
+        List<Receta> recetas = new ArrayList<>();
+        recetas.add(new Receta("Tarta de chocolate", "Postre", "Chocolate, harina, azúcar", "Mezclar y hornear"));
+        recetas.add(new Receta("Pollo al horno", "Plato principal", "Pollo, sal, pimienta", "Hornear el pollo"));
+        recetas.add(new Receta("Ensalada verde", "Entrada", "Lechuga, pepino, tomate", "Mezclar los ingredientes"));
+        recetas.add(new Receta("Pollo con salsa agridulce", "Entrada", "Lechuga, pepino, tomate", "Mezclar los ingredientes"));
+        recetas.add(new Receta("Salsa agridulce", "Entrada", "Lechuga, pepino, tomate", "Mezclar los ingredientes"));
+        recetas.add(new Receta("Lechuga remojada en salsa agridulce", "Entrada", "Lechuga, pepino, tomate", "Mezclar los ingredientes"));
+        recetas.add(new Receta("Chancho asado", "Entrada", "Lechuga, pepino, tomate", "Mezclar los ingredientes"));
+
+
+        // Realizar la búsqueda con un filtro que debe devolver una coincidencia parcial
+        List<Receta> resultado = Filtro.obtenerYFiltrarRecetasPorNombre("chancho con salsa agridulce", recetas);
+
+        // Verificar que el tamaño del resultado es el esperado
+        assertEquals(4, resultado.size());
+        System.out.println(resultado.get(0).getNombre());
+        System.out.println(resultado.get(1).getNombre());
+        System.out.println(resultado.get(2).getNombre());
+        System.out.println(resultado.get(3).getNombre());
+
+        // Verificar que el nombre de la receta es el esperado
+        assertEquals("Pollo con salsa agridulce", resultado.get(0).getNombre());
+    }
 }
