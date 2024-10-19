@@ -2,6 +2,9 @@ package modelo;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class ComentarioReceta {
 
@@ -10,6 +13,14 @@ public class ComentarioReceta {
     private Long id;
 
     private String texto;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "receta")
+    private List<ComentarioReceta> comentarios = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "receta_id")
+    private Receta receta;  // Relación con la clase Receta
+
 
     public ComentarioReceta(String texto) {
         this.texto = texto;
@@ -22,6 +33,14 @@ public class ComentarioReceta {
         return texto;
     }
 
+    public Receta getReceta() {
+        return receta;
+    }
+
+    public void setReceta(Receta receta) {
+        this.receta = receta;
+    }
+
     public void setTexto(String texto) {
         this.texto = texto;
     }
@@ -31,5 +50,13 @@ public class ComentarioReceta {
         return "ComentarioReceta{" +
                 "texto='" + texto + '\'' +
                 '}';
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
