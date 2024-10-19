@@ -18,12 +18,18 @@ public class Receta {
     private String tipoReceta;
     private String ingredientes;
     private String preparacion;
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "receta_id")
     private List<ComentarioReceta> comentarios = new ArrayList<>();
+
     @ManyToOne
     @JoinColumn(name = "foro_id")
     private Foro foro;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private ReaccionReceta reacciones = new ReaccionReceta();
+
 
     public Receta(String nombre, String tipoReceta, String ingredientes, String preparacion) {
         this.nombre = nombre;
@@ -65,6 +71,13 @@ public class Receta {
         return comentarios;
     }
 
+    public ReaccionReceta getReacciones() {
+        return reacciones;
+    }
+
+    public void setReacciones(ReaccionReceta reacciones) {
+        this.reacciones = reacciones;
+    }
 
     @Override
     public String toString() {
@@ -75,7 +88,6 @@ public class Receta {
                 ", instrucciones='" + preparacion + '\'' +
                 '}';
     }
-
 
     // Getters y Setters
     public Long getId() {

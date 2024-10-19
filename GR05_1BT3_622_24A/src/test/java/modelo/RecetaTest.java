@@ -80,4 +80,32 @@ class RecetaTest {
         assertEquals(1, comentarios.size());
         assertEquals("Me encantó, pero cambié algunos ingredientes.", comentarios.get(0).getTexto());
     }
+
+    @Test
+    public void testAgregarLikeYDislikeConReaccionReceta() {
+        // Crear una receta
+        Receta receta = new Receta("Tarta de manzana", "Postre", "Manzana, azúcar, harina", "Mezclar y hornear");
+
+        // Inicialmente, la receta no debe tener likes ni dislikes
+        assertEquals(0, receta.getReacciones().getLikes());
+        assertEquals(0, receta.getReacciones().getDislikes());
+
+        // Agregar 3 likes y 1 dislike
+        receta.getReacciones().agregarLike();
+        receta.getReacciones().agregarLike();
+        receta.getReacciones().agregarLike();
+        receta.getReacciones().agregarDislike();
+
+        // Verificar que los likes y dislikes se incrementaron correctamente
+        assertEquals(3, receta.getReacciones().getLikes());
+        assertEquals(1, receta.getReacciones().getDislikes());
+
+        // Restar un like y verificar
+        receta.getReacciones().restarLike();
+        assertEquals(2, receta.getReacciones().getLikes());
+
+        // Restar un dislike y verificar
+        receta.getReacciones().restarDislike();
+        assertEquals(0, receta.getReacciones().getDislikes());
+    }
 }
