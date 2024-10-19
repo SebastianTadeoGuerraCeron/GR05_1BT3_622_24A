@@ -143,5 +143,21 @@ class RecetaTest {
         assertTrue(resultado);
     }
 
+    @ParameterizedTest
+    @CsvSource({
+            "'Tarta de manzana', 'Postre', 'Manzana, azúcar, harina, canela', 'Mezclar los ingredientes y hornear durante 30 minutos'",
+            "'Pastel de 5 pisos con decoración espectacular', 'Pastel de boda', 'Harina, azúcar, mantequilla, huevos, crema', 'Mezclar todo y hornear por partes, luego montar y decorar con crema'",
+            "'Pan de chocolate con relleno de crema y trozos de almendra caramelizada', 'Dulce', 'Harina, azúcar, cacao, almendras', 'Preparar la masa, hornear y rellenar con crema antes de servir'",
+            "'Pizza cuatro quesos', 'Comida italiana', 'Mozzarella, Gorgonzola, Parmesano, Ricotta', 'Preparar la masa, agregar los quesos y hornear a 200 grados'",
+            "'Ensalada de frutas con aderezo de yogurt natural', 'Ensalada', 'Frutas frescas, yogurt natural, miel, nueces', 'Cortar las frutas, mezclar con yogurt y miel, agregar nueces al final'",
+            "'Churrasco ecuatoriano', 'Comida típica', 'Carne, arroz, huevo frito, aguacate', 'Cocinar la carne al gusto, acompañar con arroz, huevo frito y aguacate'"
+    })
+
+    public void given_receta_when_fieldsLessThan200Chars_then_validReceta(String nombre, String tipoReceta, String ingredientes, String preparacion) {
+        Receta receta = new Receta(nombre, tipoReceta, ingredientes, preparacion);
+        boolean resultado = receta.verificarContenidoMax200();
+        assertTrue(resultado);
+    }
+
 
 }

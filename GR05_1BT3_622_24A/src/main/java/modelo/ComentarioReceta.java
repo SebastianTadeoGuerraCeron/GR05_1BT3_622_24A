@@ -14,8 +14,6 @@ public class ComentarioReceta {
 
     private String texto;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "receta")
-    private List<ComentarioReceta> comentarios = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "receta_id")
