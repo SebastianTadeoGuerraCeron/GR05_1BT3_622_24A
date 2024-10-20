@@ -33,11 +33,17 @@ public class RecetaJpaController {
         EntityManager em = getEntityManager();
         try {
             em.getTransaction().begin();
+
+            // Asegurarse de que cada comentario esté asociado a la receta
             if (receta.getComentarios() != null) {
-                receta.getComentarios().forEach(comentario -> {
-                    comentario.setReceta(receta);  // Asociar comentario con la receta
-                });
+                receta.getComentarios().forEach(comentario -> comentario.setReceta(receta));
             }
+
+            // Manejar las reacciones de la receta
+            if (receta.getReacciones() != null) {
+                receta.getReacciones().setReceta(receta); // Asignar la receta en ReaccionReceta
+            }
+
             em.persist(receta);
             em.getTransaction().commit();
         } finally {
@@ -57,17 +63,20 @@ public class RecetaJpaController {
                 throw new NonexistentEntityException("La receta con id " + receta.getId() + " no existe.");
             }
 
-            // Actualizar la lista de comentarios
+            // Actualizar los comentarios
             if (receta.getComentarios() != null) {
-                receta.getComentarios().forEach(comentario -> {
-                    comentario.setReceta(receta);  // Asociar comentario con la receta editada
-                });
+                receta.getComentarios().forEach(comentario -> comentario.setReceta(receta));
             }
 
-            em.merge(receta);  // Guardar los cambios
+            // Actualizar las reacciones
+            if (receta.getReacciones() != null) {
+                receta.getReacciones().setReceta(receta);
+            }
+
+            em.merge(receta); // Guardar los cambios
             em.getTransaction().commit();
         } catch (Exception ex) {
-            em.getTransaction().rollback();  // Hacer rollback si hay un error
+            em.getTransaction().rollback(); // Hacer rollback si hay un error
             throw ex;
         } finally {
             if (em != null) {
@@ -128,8 +137,8 @@ public class RecetaJpaController {
     public Receta findReceta(Long id) {
         EntityManager em = getEntityManager();
         try {
-            // Usamos fetch join para cargar los comentarios de la receta de forma inmediata
-            return em.createQuery("SELECT r FROM Receta r LEFT JOIN FETCH r.comentarios WHERE r.id = :id", Receta.class)
+            // Usamos fetch join para cargar los comentarios y las reacciones de la receta de forma inmediata
+            return em.createQuery("SELECT r FROM Receta r LEFT JOIN FETCH r.comentarios LEFT JOIN FETCH r.reacciones WHERE r.id = :id", Receta.class)
                     .setParameter("id", id)
                     .getSingleResult();
         } finally {

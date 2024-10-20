@@ -9,45 +9,94 @@ public class ReaccionReceta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int likes = 0;
-    private int dislikes = 0;
+    @Enumerated(EnumType.STRING)
+    private ReactionType type;  // Tipo de reacción (LIKE o DISLIKE)
 
-    // Métodos para agregar y restar likes
-    public void agregarLike() {
-        this.likes++;
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;  // Relación con el usuario que hizo la reacción
+
+    @ManyToOne
+    @JoinColumn(name = "receta_id")
+    private Receta receta;  // Relación con la receta a la que pertenece la reacción
+
+    // Constructor sin argumentos
+    public ReaccionReceta() {}
+
+    // Constructor con el tipo de reacción y el usuario
+    public ReaccionReceta(ReactionType type, Usuario usuario, Receta receta) {
+        this.type = type;
+        this.usuario = usuario;
+        this.receta = receta;
     }
 
-    public void restarLike() {
-        if (this.likes > 0) {
-            this.likes--;
+    // Getters y Setters para el tipo de reacción
+    public ReactionType getType() {
+        return type;
+    }
+
+    public void setType(ReactionType type) {
+        this.type = type;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Receta getReceta() {
+        return receta;
+    }
+
+    public void setReceta(Receta receta) {
+        this.receta = receta;
+    }
+
+    private void actualizarReaccion(boolean isIncrement) {
+        if (this.type == ReactionType.LIKE) {
+            if (isIncrement) {
+                this.receta.aumentarLikes();
+            } else {
+                this.receta.disminuirLikes();
+            }
+        } else if (this.type == ReactionType.DISLIKE) {
+            if (isIncrement) {
+                this.receta.aumentarDislikes();
+            } else {
+                this.receta.disminuirDislikes();
+            }
         }
+        System.out.println("Reacción " + type + (isIncrement ? " incrementada." : " eliminada."));
     }
 
-    // Métodos para agregar y restar dislikes
-    public void agregarDislike() {
-        this.dislikes++;
+    // Método para incrementar la reacción
+    public void incrementReaction() {
+        actualizarReaccion(true);
     }
 
-    public void restarDislike() {
-        if (this.dislikes > 0) {
-            this.dislikes--;
-        }
+    // Método para eliminar la reacción
+    public void removeReaction() {
+        actualizarReaccion(false);
     }
 
-    // Getters para likes y dislikes
+    // Getters y Setters para el ID
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    // Métodos para obtener los contadores de likes y dislikes
     public int getLikes() {
-        return likes;
+        return receta.getContadorLikes();
     }
 
     public int getDislikes() {
-        return dislikes;
-    }
-
-    @Override
-    public String toString() {
-        return "ReaccionReceta{" +
-                "likes=" + likes +
-                ", dislikes=" + dislikes +
-                '}';
+        return receta.getContadorDislike();
     }
 }

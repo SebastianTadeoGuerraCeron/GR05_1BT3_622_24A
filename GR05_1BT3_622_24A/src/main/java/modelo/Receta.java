@@ -1,8 +1,6 @@
 package modelo;
 
 import jakarta.persistence.*;
-
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.ComentarioReceta;
@@ -20,6 +18,9 @@ public class Receta {
     private String ingredientes;
     private String preparacion;
 
+    private int contadorLikes;   // Atributo para contar los likes
+    private int contadorDislike; // Atributo para contar los dislikes
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "receta_id")
     private List<ComentarioReceta> comentarios = new ArrayList<>();
@@ -31,7 +32,6 @@ public class Receta {
     @OneToOne(cascade = CascadeType.ALL)
     private ReaccionReceta reacciones = new ReaccionReceta();
 
-
     private static final ModeradorOfensivo moderador = new ModeradorOfensivo();
 
     public Receta(String nombre, String tipoReceta, String ingredientes, String preparacion) {
@@ -40,12 +40,13 @@ public class Receta {
         this.preparacion = preparacion;
         this.tipoReceta = tipoReceta;
     }
+
     public Receta() {
     }
 
     public List<Receta> publicarReceta(Foro foro) {
         this.foro = foro;
-        if(foro != null) {
+        if (foro != null) {
             foro.getListaReceta().add(this);
             return foro.getListaReceta();
         }
@@ -53,7 +54,7 @@ public class Receta {
     }
 
     public List<Receta> eliminarReceta(Foro foro) {
-        if(foro != null) {
+        if (foro != null) {
             foro.getListaReceta().remove(this);
             return foro.getListaReceta();
         }
@@ -84,14 +85,13 @@ public class Receta {
 
     // Método para verificar si la receta contiene palabras ofensivas
     public boolean verificarContenidoOfensivo() {
-        // Verifica si los ingredientes o la preparación contienen palabras ofensivas
         return moderador.verificarOfensivo(this.nombre) || moderador.verificarOfensivo(this.tipoReceta) || moderador.verificarOfensivo(this.ingredientes) ||
                 moderador.verificarOfensivo(this.preparacion);
     }
 
-    public boolean verificarContenidoMax200 () {
-        return this.nombre.length() <= 200 && this.tipoReceta.length() <= 200 && this.ingredientes.length() <= 200 && this.preparacion.length()<=200;
-}
+    public boolean verificarContenidoMax200() {
+        return this.nombre.length() <= 200 && this.tipoReceta.length() <= 200 && this.ingredientes.length() <= 200 && this.preparacion.length() <= 200;
+    }
 
     @Override
     public String toString() {
@@ -103,7 +103,45 @@ public class Receta {
                 '}';
     }
 
-    // Getters y Setters
+    // Getters y Setters para likes y dislikes
+    public int getContadorLikes() {
+        return contadorLikes;
+    }
+
+    public void setContadorLikes(int contadorLikes) {
+        this.contadorLikes = contadorLikes;
+    }
+
+    public int getContadorDislike() {
+        return contadorDislike;
+    }
+
+    public void setContadorDislike(int contadorDislike) {
+        this.contadorDislike = contadorDislike;
+    }
+
+    // Métodos para aumentar y disminuir likes y dislikes
+    public void aumentarLikes() {
+        this.contadorLikes++;
+    }
+
+    public void disminuirLikes() {
+        if (this.contadorLikes > 0) {
+            this.contadorLikes--;
+        }
+    }
+
+    public void aumentarDislikes() {
+        this.contadorDislike++;
+    }
+
+    public void disminuirDislikes() {
+        if (this.contadorDislike > 0) {
+            this.contadorDislike--;
+        }
+    }
+
+    // Getters y Setters generales
     public Long getId() {
         return id;
     }
@@ -111,32 +149,33 @@ public class Receta {
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getNombre() {
         return nombre;
-    }
-
-    public String getTipoReceta() {
-        return tipoReceta;
-    }
-
-    public String getIngredientes() {
-        return ingredientes;
-    }
-
-    public String getPreparacion() {
-        return preparacion;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    public String getTipoReceta() {
+        return tipoReceta;
+    }
+
     public void setTipoReceta(String tipoReceta) {
         this.tipoReceta = tipoReceta;
     }
 
+    public String getIngredientes() {
+        return ingredientes;
+    }
+
     public void setIngredientes(String ingredientes) {
         this.ingredientes = ingredientes;
+    }
+
+    public String getPreparacion() {
+        return preparacion;
     }
 
     public void setPreparacion(String preparacion) {
@@ -150,6 +189,4 @@ public class Receta {
     public void setForo(Foro foro) {
         this.foro = foro;
     }
-
-
 }
