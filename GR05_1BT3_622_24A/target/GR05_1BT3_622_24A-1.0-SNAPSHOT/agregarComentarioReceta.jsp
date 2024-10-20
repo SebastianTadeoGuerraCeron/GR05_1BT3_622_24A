@@ -84,7 +84,7 @@
 
             <!-- Formulario para el botón "Cancelar" -->
             <Form action="RecetaServlet" method="GET">
-                <button class="boton-cancelar" onclick="window.location.href='verReceta.jsp'">Cancelar</button>
+                <button class="boton-cancelar" onclick="window.location.href='verReceta.jspF'">Cancelar</button>
             </Form>
         </div>
     </form>

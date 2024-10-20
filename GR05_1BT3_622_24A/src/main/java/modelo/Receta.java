@@ -61,6 +61,24 @@ public class Receta {
         return null;
     }
 
+    public void actualizarReaccion(ReactionType type, boolean isIncrement) {
+        if (type == ReactionType.LIKE) {
+            if (isIncrement) {
+                aumentarLikes();
+            } else {
+                disminuirLikes();
+            }
+        } else if (type == ReactionType.DISLIKE) {
+            if (isIncrement) {
+                aumentarDislikes();
+            } else {
+                disminuirDislikes();
+            }
+        }
+        System.out.println("Reacción " + type + (isIncrement ? " incrementada." : " eliminada."));
+    }
+
+
     // Métodos para agregar y obtener comentarios
     public void agregarComentario(ComentarioReceta comentario) {
         comentarios.add(comentario);
@@ -85,13 +103,24 @@ public class Receta {
 
     // Método para verificar si la receta contiene palabras ofensivas
     public boolean verificarContenidoOfensivo() {
-        return moderador.verificarOfensivo(this.nombre) || moderador.verificarOfensivo(this.tipoReceta) || moderador.verificarOfensivo(this.ingredientes) ||
+        return moderador.verificarOfensivo(this.nombre) ||
+                moderador.verificarOfensivo(this.tipoReceta) ||
+                moderador.verificarOfensivo(this.ingredientes) ||
                 moderador.verificarOfensivo(this.preparacion);
     }
 
-    public boolean verificarContenidoMax200() {
-        return this.nombre.length() <= 200 && this.tipoReceta.length() <= 200 && this.ingredientes.length() <= 200 && this.preparacion.length() <= 200;
+
+    private boolean esMenorOIgualA200(String texto) {
+        return texto.length() <= 200;
     }
+
+    public boolean verificarContenidoMax200() {
+        return esMenorOIgualA200(this.nombre) &&
+                esMenorOIgualA200(this.tipoReceta) &&
+                esMenorOIgualA200(this.ingredientes) &&
+                esMenorOIgualA200(this.preparacion);
+    }
+
 
     @Override
     public String toString() {

@@ -47,7 +47,7 @@
             border-radius: 5px;
             font-size: 16px;
         }
-        .boton-receta button {
+        .boton-receta button, .boton-resena button {
             background-color: #4CAF50;
             color: white;
             border: none;
@@ -57,21 +57,8 @@
             font-size: 16px;
             margin-left: 10px;
         }
-        .boton-receta button:hover {
+        .boton-receta button:hover, .boton-resena button:hover {
             background-color: #45a049;
-        }
-        .boton-resena button {
-            background-color: #008CBA;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 10px;
-            font-size: 16px;
-            margin-left: 10px;
-        }
-        .boton-resena button:hover {
-            background-color: #007BB5;
         }
         #recetas {
             border-top: 2px solid #333;
@@ -101,6 +88,28 @@
         .boton-ampliar:hover {
             background-color: #007BB5;
         }
+        .like-dislike-buttons {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px; /* Espacio entre los botones */
+            margin-top: 10px;
+        }
+        .like-button, .dislike-button {
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+        .like-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .dislike-button {
+            background-color: #f44336;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -117,6 +126,7 @@
                     <option value="Postre" <%= "Postre".equals(request.getParameter("filtro-receta")) ? "selected" : "" %>>Postre</option>
                     <option value="Entrada" <%= "Entrada".equals(request.getParameter("filtro-receta")) ? "selected" : "" %>>Entrada</option>
                     <option value="Plato fuerte" <%= "Plato fuerte".equals(request.getParameter("filtro-receta")) ? "selected" : "" %>>Plato Fuerte</option>
+                    <option value="Ensalada" <%= "Ensalada".equals(request.getParameter("filtro-receta")) ? "selected" : "" %>>Ensalada</option>
                 </select>
             </form>
 
@@ -128,7 +138,9 @@
 
         <!-- Botón para ir a Reseñas que redirige a foro.jsp -->
         <div class="boton-resena">
-            <button onclick="window.location.href='foro.jsp'">Reseñas</button>
+            <form action="ForoServlet" method="GET">
+                <button onclick="window.location.href='foro.jsp'">Reseñas</button>
+            </form>
         </div>
     </div>
 
@@ -147,8 +159,32 @@
             <p><em><%= receta.getIngredientes() %></em></p>
             <p><%= receta.getPreparacion() %></p>
 
+            <!-- Mostrar la cantidad de Likes y Dislikes -->
+            <p>Likes: <%= receta.getReacciones().getLikes() %> | Dislikes: <%= receta.getReacciones().getDislikes() %></p>
+
+            <!-- Botones para dar Like y Dislike -->
+            <div class="like-dislike-buttons">
+                <form action="ReactionRecetaServlet" method="post">
+                    <input type="hidden" name="recetaId" value="<%= receta.getId() %>">
+                    <input type="hidden" name="action" value="like">
+                    <button class="like-button" type="submit">Like</button>
+                </form>
+
+                <form action="ReactionRecetaServlet" method="post">
+                    <input type="hidden" name="recetaId" value="<%= receta.getId() %>">
+                    <input type="hidden" name="action" value="dislike">
+                    <button class="dislike-button" type="submit">Dislike</button>
+                </form>
+            </div>
+
             <!-- Botón para ampliar la receta -->
             <button class="boton-ampliar" onclick="window.location.href='AmpliarRecetaServlet?id=<%= receta.getId() %>'">Ampliar</button>
+
+            <!-- Botón para eliminar la receta -->
+            <form action="EliminarRecetaServlet" method="POST" style="display:inline;">
+                <input type="hidden" name="idReceta" value="<%= receta.getId() %>" />
+                <button type="submit" class="boton-ampliar" style="background-color: red;">Eliminar</button>
+            </form>
         </div>
         <%
             }

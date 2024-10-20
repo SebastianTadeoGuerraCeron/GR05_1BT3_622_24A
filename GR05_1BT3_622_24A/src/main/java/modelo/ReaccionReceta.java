@@ -56,20 +56,7 @@ public class ReaccionReceta {
     }
 
     private void actualizarReaccion(boolean isIncrement) {
-        if (this.type == ReactionType.LIKE) {
-            if (isIncrement) {
-                this.receta.aumentarLikes();
-            } else {
-                this.receta.disminuirLikes();
-            }
-        } else if (this.type == ReactionType.DISLIKE) {
-            if (isIncrement) {
-                this.receta.aumentarDislikes();
-            } else {
-                this.receta.disminuirDislikes();
-            }
-        }
-        System.out.println("Reacción " + type + (isIncrement ? " incrementada." : " eliminada."));
+        this.receta.actualizarReaccion(this.type, isIncrement);
     }
 
     // Método para incrementar la reacción
