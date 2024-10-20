@@ -62,6 +62,15 @@
             background-color: #e53935;
         }
     </style>
+    <script>
+        // Verificar si se detectó contenido ofensivo
+        window.onload = function () {
+            var ofensivo = "<%= request.getAttribute("ofensivo") %>";
+            if (ofensivo === 'true') {
+                alert("Se ha detectado contenido ofensivo en el comentario. Por favor, corrígelo.");
+            }
+        };
+    </script>
 </head>
 <body>
 <div class="container">

@@ -38,6 +38,14 @@ public class AgregarRecetaServlet extends HttpServlet {
         // Crear una nueva instancia de Receta con los datos del formulario
         Receta receta = new Receta(nombre, tipoReceta, ingredientes, preparacion);
 
+        // Verificar si contiene contenido ofensivo
+        if (receta.verificarContenidoOfensivo()) {
+            // Si se detecta contenido ofensivo, se guarda el mensaje en el request
+            request.setAttribute("ofensivo", true);
+            request.getRequestDispatcher("/nuevaReceta.jsp").forward(request, response);
+            return; // Terminar aquí, no guardar la receta
+        }
+
         try {
             // Obtener el foro (en este caso asumiendo que se obtiene con ID 1, puedes ajustar según sea necesario)
             Foro foro = foroJpaController.findForo(1L);

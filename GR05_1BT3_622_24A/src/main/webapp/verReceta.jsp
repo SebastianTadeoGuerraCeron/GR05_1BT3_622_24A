@@ -79,7 +79,7 @@
   <button class="boton-agregar" onclick="window.location.href='agregarComentarioReceta.jsp?id=<%= recetaAmpliada.getId() %>'">Agregar Comentario</button>
 
   <!-- Botón "Cancelar" -->
-  <form action="ForoRecetaServlet" method="GET" style="display:inline;">
+  <form action="RecetaServlet" method="GET" style="display:inline;">
     <button type="submit" class="boton-cancelar">Cancelar</button>
   </form>
 
@@ -110,6 +110,9 @@
   } else {
   %>
   <p>La receta no se ha encontrado.</p>
+  <Form>
+    <button class="boton-agregar" onclick="window.location.href='agregarComentarioReceta.jsp'">Agregar Comentario</button>
+  </Form>
   <button class="boton-cancelar" onclick="window.location.href='foroReceta.jsp'">Cancelar</button>
   <%
     }

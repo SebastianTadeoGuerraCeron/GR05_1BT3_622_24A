@@ -67,6 +67,15 @@
       margin-bottom: 15px;
     }
   </style>
+  <script>
+    // Verificar si se detectó contenido ofensivo
+    window.onload = function () {
+      var ofensivo = "<%= request.getAttribute("ofensivo") %>";
+      if (ofensivo === 'true') {
+        alert("Se ha detectado una palabra ofensiva en la receta. Por favor, corrígela.");
+      }
+    };
+  </script>
 </head>
 <body>
 <div class="container">
@@ -84,7 +93,7 @@
 
   <form action="AgregarRecetaServlet" method="POST">
     <label for="nombre">Nombre de la Receta:</label>
-    <input type="text" id="nombre" name="nombre" required>
+    <input type="text" id="nombre" name="nombre" value="<%= request.getParameter("nombre") != null ? request.getParameter("nombre") : "" %>" required>
 
     <label for="tipoReceta">Tipo de Receta:</label>
     <select id="tipoReceta" name="tipoReceta" required>

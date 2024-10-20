@@ -48,6 +48,13 @@ public class AgregarComentarioRecetaServlet extends HttpServlet {
 
             // Crear y agregar el comentario a la receta
             ComentarioReceta comentario = new ComentarioReceta(contenido, LocalDateTime.now());
+            if (comentario.verificarContenidoOfensivo()) {
+                // Si se detecta contenido ofensivo, se guarda el mensaje en el request
+                request.setAttribute("ofensivo", true);
+                request.getRequestDispatcher("/agregarComentario.jsp").forward(request, response);
+                return; // Terminar aquí, no guardar la receta
+            }
+
             comentario.setReceta(receta);
             receta.agregarComentario(comentario);
             comentarioRecetaJpaController.create(comentario);
