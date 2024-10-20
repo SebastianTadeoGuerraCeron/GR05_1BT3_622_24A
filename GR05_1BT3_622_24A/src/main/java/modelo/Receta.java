@@ -1,11 +1,8 @@
 package modelo;
 
 import jakarta.persistence.*;
-
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.ComentarioReceta;
 import negocio.ModeradorOfensivo;
 
 @Entity
@@ -25,12 +22,11 @@ public class Receta {
     private List<ComentarioReceta> comentarios = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name = "foro_id")
-    private Foro foro;
+    @JoinColumn(name = "foroReceta_id")
+    private ForoReceta foroReceta;
 
     @OneToOne(cascade = CascadeType.ALL)
     private ReaccionReceta reacciones = new ReaccionReceta();
-
 
     private static final ModeradorOfensivo moderador = new ModeradorOfensivo();
 
@@ -40,22 +36,22 @@ public class Receta {
         this.preparacion = preparacion;
         this.tipoReceta = tipoReceta;
     }
-    public Receta() {
-    }
 
-    public List<Receta> publicarReceta(Foro foro) {
-        this.foro = foro;
-        if(foro != null) {
-            foro.getListaReceta().add(this);
-            return foro.getListaReceta();
+    public Receta() {}
+
+    public List<Receta> publicarReceta(ForoReceta foroReceta) {
+        this.foroReceta = foroReceta;
+        if (foroReceta != null) {
+            foroReceta.getListaReceta().add(this);
+            return foroReceta.getListaReceta();
         }
         return null;
     }
 
-    public List<Receta> eliminarReceta(Foro foro) {
-        if(foro != null) {
-            foro.getListaReceta().remove(this);
-            return foro.getListaReceta();
+    public List<Receta> eliminarReceta(ForoReceta foroReceta) {
+        if (foroReceta != null) {
+            foroReceta.getListaReceta().remove(this);
+            return foroReceta.getListaReceta();
         }
         return null;
     }
@@ -65,7 +61,6 @@ public class Receta {
         comentarios.add(comentario);
     }
 
-    // Método para eliminar un comentario por referencia
     public boolean eliminarComentario(ComentarioReceta comentario) {
         return comentarios.remove(comentario);
     }
@@ -82,25 +77,18 @@ public class Receta {
         this.reacciones = reacciones;
     }
 
-    // Método para verificar si la receta contiene palabras ofensivas
     public boolean verificarContenidoOfensivo() {
-        // Verifica si los ingredientes o la preparación contienen palabras ofensivas
-        return moderador.verificarOfensivo(this.nombre) || moderador.verificarOfensivo(this.tipoReceta) || moderador.verificarOfensivo(this.ingredientes) ||
+        return moderador.verificarOfensivo(this.nombre) ||
+                moderador.verificarOfensivo(this.tipoReceta) ||
+                moderador.verificarOfensivo(this.ingredientes) ||
                 moderador.verificarOfensivo(this.preparacion);
     }
 
-    public boolean verificarContenidoMax200 () {
-        return this.nombre.length() <= 200 && this.tipoReceta.length() <= 200 && this.ingredientes.length() <= 200 && this.preparacion.length()<=200;
-}
-
-    @Override
-    public String toString() {
-        return "Receta{" +
-                "nombre='" + nombre + '\'' +
-                ", tipoReceta='" + tipoReceta + '\'' +
-                ", ingredientes='" + ingredientes + '\'' +
-                ", instrucciones='" + preparacion + '\'' +
-                '}';
+    public boolean verificarContenidoMax200() {
+        return this.nombre.length() <= 200 &&
+                this.tipoReceta.length() <= 200 &&
+                this.ingredientes.length() <= 200 &&
+                this.preparacion.length() <= 200;
     }
 
     // Getters y Setters
@@ -111,45 +99,44 @@ public class Receta {
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getNombre() {
         return nombre;
-    }
-
-    public String getTipoReceta() {
-        return tipoReceta;
-    }
-
-    public String getIngredientes() {
-        return ingredientes;
-    }
-
-    public String getPreparacion() {
-        return preparacion;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    public String getTipoReceta() {
+        return tipoReceta;
+    }
+
     public void setTipoReceta(String tipoReceta) {
         this.tipoReceta = tipoReceta;
+    }
+
+    public String getIngredientes() {
+        return ingredientes;
     }
 
     public void setIngredientes(String ingredientes) {
         this.ingredientes = ingredientes;
     }
 
+    public String getPreparacion() {
+        return preparacion;
+    }
+
     public void setPreparacion(String preparacion) {
         this.preparacion = preparacion;
     }
 
-    public Foro getForo() {
-        return foro;
+    public ForoReceta getForoReceta() {
+        return foroReceta;
     }
 
-    public void setForo(Foro foro) {
-        this.foro = foro;
+    public void setForoReceta(ForoReceta foroReceta) {
+        this.foroReceta = foroReceta;
     }
-
-
 }
