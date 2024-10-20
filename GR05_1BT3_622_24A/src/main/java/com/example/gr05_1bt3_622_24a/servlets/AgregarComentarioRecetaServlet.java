@@ -46,9 +46,9 @@ public class AgregarComentarioRecetaServlet extends HttpServlet {
             }
 
             // Crear y agregar el comentario a la receta
-            ComentarioReceta comentario = new ComentarioReceta(contenido);
-            receta.agregarComentario(comentario);
-            comentarioRecetaJpaController.create(comentario);
+            //ComentarioReceta comentario = new ComentarioReceta(contenido);
+            //receta.agregarComentario(comentario);
+            //comentarioRecetaJpaController.create(comentario);
 
             // Redirigir a la página verReceta.jsp
             request.setAttribute("receta", receta);

@@ -1,9 +1,7 @@
 package modelo;
 
 import jakarta.persistence.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Entity
 public class ComentarioReceta {
@@ -14,14 +12,15 @@ public class ComentarioReceta {
 
     private String texto;
 
+    private LocalDateTime fechaPublicacion;  // Nuevo campo para la fecha de publicación
 
     @ManyToOne
     @JoinColumn(name = "receta_id")
     private Receta receta;  // Relación con la clase Receta
 
-
-    public ComentarioReceta(String texto) {
+    public ComentarioReceta(String texto, LocalDateTime fechaPublicacion) {
         this.texto = texto;
+        this.fechaPublicacion = fechaPublicacion;
     }
 
     public ComentarioReceta() {
@@ -29,6 +28,18 @@ public class ComentarioReceta {
 
     public String getTexto() {
         return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    public LocalDateTime getFechaPublicacion() {
+        return fechaPublicacion;
+    }
+
+    public void setFechaPublicacion(LocalDateTime fechaPublicacion) {
+        this.fechaPublicacion = fechaPublicacion;
     }
 
     public Receta getReceta() {
@@ -39,22 +50,19 @@ public class ComentarioReceta {
         this.receta = receta;
     }
 
-    public void setTexto(String texto) {
-        this.texto = texto;
-    }
-
-    @Override
-    public String toString() {
-        return "ComentarioReceta{" +
-                "texto='" + texto + '\'' +
-                '}';
-    }
-
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "ComentarioReceta{" +
+                "texto='" + texto + '\'' +
+                ", fechaPublicacion=" + fechaPublicacion +
+                '}';
     }
 }
