@@ -1,4 +1,4 @@
-/*package modelo;
+package modelo;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -52,7 +52,7 @@ class RecetaTest {
        // receta.agregarComentario(comentario2);
 
         // Verificar que los comentarios se agregaron correctamente
-        <ComentarioReceta> comentarios = receta.getComentarios();
+        List <ComentarioReceta> comentarios = receta.getComentarios();
         assertEquals(2, comentarios.size());
         assertEquals("Muy buena receta, la recomiendo!", comentarios.get(0).getTexto());
         assertEquals("Me encantó, pero cambié algunos ingredientes.", comentarios.get(1).getTexto());
@@ -88,20 +88,26 @@ class RecetaTest {
         // Crear una receta
         Receta receta = new Receta("Tarta de manzana", "Postre", "Manzana, azúcar, harina", "Mezclar y hornear");
 
-        // Inicialmente, la receta no debe tener likes
-        assertEquals(0, receta.getReacciones().getLikes());
+        // Crear un usuario para la reacción
+        Usuario usuario = new Usuario(); // Simulación de un usuario
 
-        // Agregar 3 likes
-        receta.getReacciones().agregarLike();
-        receta.getReacciones().agregarLike();
-        receta.getReacciones().agregarLike();
+        // Inicialmente, la receta no debe tener likes
+        assertEquals(0, receta.getContadorLikes());
+
+        // Crear una reacción de tipo LIKE y asociarla con la receta
+        ReaccionReceta likeReaccion = new ReaccionReceta(ReactionType.LIKE, usuario, receta);
+
+        // Incrementar la reacción (agrega un like)
+        likeReaccion.incrementReaction();
+        likeReaccion.incrementReaction();
+        likeReaccion.incrementReaction();
 
         // Verificar que los likes se incrementaron correctamente
-        assertEquals(3, receta.getReacciones().getLikes());
+        assertEquals(3, receta.getContadorLikes());
 
-        // Restar un like y verificar
-        receta.getReacciones().restarLike();
-        assertEquals(2, receta.getReacciones().getLikes());
+        // Remover un like
+        likeReaccion.removeReaction();
+        assertEquals(2, receta.getContadorLikes());
     }
 
     @Test
@@ -109,20 +115,27 @@ class RecetaTest {
         // Crear una receta
         Receta receta = new Receta("Tarta de manzana", "Postre", "Manzana, azúcar, harina", "Mezclar y hornear");
 
-        // Inicialmente, la receta no debe tener dislikes
-        assertEquals(0, receta.getReacciones().getDislikes());
+        // Crear un usuario para la reacción
+        Usuario usuario = new Usuario(); // Simulación de un usuario
 
-        // Agregar 2 dislikes
-        receta.getReacciones().agregarDislike();
-        receta.getReacciones().agregarDislike();
+        // Inicialmente, la receta no debe tener dislikes
+        assertEquals(0, receta.getContadorDislike());
+
+        // Crear una reacción de tipo DISLIKE y asociarla con la receta
+        ReaccionReceta dislikeReaccion = new ReaccionReceta(ReactionType.DISLIKE, usuario, receta);
+
+        // Incrementar la reacción (agrega un dislike)
+        dislikeReaccion.incrementReaction();
+        dislikeReaccion.incrementReaction();
 
         // Verificar que los dislikes se incrementaron correctamente
-        assertEquals(2, receta.getReacciones().getDislikes());
+        assertEquals(2, receta.getContadorDislike());
 
-        // Restar un dislike y verificar
-        receta.getReacciones().restarDislike();
-        assertEquals(1, receta.getReacciones().getDislikes());
+        // Remover un dislike
+        dislikeReaccion.removeReaction();
+        assertEquals(1, receta.getContadorDislike());
     }
+
 
 
     @ParameterizedTest
@@ -161,4 +174,3 @@ class RecetaTest {
 
 
 }
-*/
