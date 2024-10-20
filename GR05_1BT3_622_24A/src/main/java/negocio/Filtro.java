@@ -2,7 +2,6 @@ package negocio;
 
 import dao.ResenaJpaController;
 import modelo.Foro;
-import modelo.ForoReceta;
 import modelo.Receta;
 import modelo.Resena;
 
@@ -21,16 +20,6 @@ public class Filtro {
         // Filtrar la lista de reseñas según la categoría seleccionada
         String categoriaFiltroT = filtroCategoria; // Use a local variable instead of modifying the parameter
         return filtrarPorCategoria(listaResenas, categoriaFiltroT);
-    }
-
-    // Método para obtener y filtrar recetas por tipo
-    public static List<Receta> obtenerYFiltrarRecetas(String filtroTipoReceta, ForoReceta foroReceta) {
-        // Obtener la lista de recetas desde la clase ForoReceta
-        List<Receta> listaRecetas = foroReceta.getListaReceta();
-
-        // Filtrar la lista de recetas según el tipo de receta seleccionado
-        String tipoFiltroT = filtroTipoReceta; // Usar una variable local en lugar de modificar el parámetro
-        return filtrarPorTipoReceta(listaRecetas, tipoFiltroT);
     }
 
     public static List<Resena> filtrarPorCategoria(List<Resena> listaResenas, String categoria) {
@@ -80,4 +69,5 @@ public class Filtro {
                 })
                 .collect(Collectors.toList());
     }
+
 }
