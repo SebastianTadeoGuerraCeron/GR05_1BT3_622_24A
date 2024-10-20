@@ -104,7 +104,7 @@
       <form action="AgregarRecetaServlet" method="POST" style="margin: 0;">
         <button type="submit">Publicar</button>
       </form>
-      <form action="foroReceta.jsp" method="GET" style="margin: 0;">
+      <form action="RecetaServlet" method="GET" style="margin: 0;">
         <button type="submit" class="cancel-button">Cancelar</button>
       </form>
     </div>

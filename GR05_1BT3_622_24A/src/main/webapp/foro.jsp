@@ -136,7 +136,10 @@
 
         <!-- Nuevo botón para "Recetas" -->
         <div class="boton-recetas">
-            <button onclick="window.location.href='foroReceta.jsp'">Recetas</button>
+            <Form action="RecetaServlet" method="GET">
+                <button onclick="window.location.href='foroReceta.jsp'">Recetas</button>
+            </Form>
+
         </div>
     </div>
 

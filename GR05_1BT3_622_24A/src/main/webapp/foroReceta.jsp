@@ -116,7 +116,8 @@
                     <option value="ALL" <%= request.getParameter("filtro-receta") == null || request.getParameter("filtro-receta").equals("ALL") ? "selected" : "" %>>Todo</option>
                     <option value="Postre" <%= "Postre".equals(request.getParameter("filtro-receta")) ? "selected" : "" %>>Postre</option>
                     <option value="Entrada" <%= "Entrada".equals(request.getParameter("filtro-receta")) ? "selected" : "" %>>Entrada</option>
-                    <option value="Plato fuerte" <%= "Plato fuerte".equals(request.getParameter("filtro-receta")) ? "selected" : "" %>>Plato Fuerte</option>
+                    <option value="plato-fuerte" <%= "Plato fuerte".equals(request.getParameter("filtro-receta")) ? "selected" : "" %>>Plato Fuerte</option>
+                    <option value="Ensalada" <%= "Ensalada".equals(request.getParameter("filtro-receta")) ? "selected" : "" %>>Ensalada</option>
                 </select>
             </form>
 
@@ -128,7 +129,10 @@
 
         <!-- Botón para ir a Reseñas que redirige a foro.jsp -->
         <div class="boton-resena">
-            <button onclick="window.location.href='foro.jsp'">Reseñas</button>
+            <Form action="ForoServlet" method="GET">
+                <button onclick="window.location.href='foro.jsp'">Reseñas</button>
+            </Form>
+
         </div>
     </div>
 
