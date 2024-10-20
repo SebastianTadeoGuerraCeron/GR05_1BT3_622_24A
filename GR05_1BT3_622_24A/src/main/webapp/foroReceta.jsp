@@ -60,6 +60,19 @@
         .boton-receta button:hover {
             background-color: #45a049;
         }
+        .boton-resena button {
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        .boton-resena button:hover {
+            background-color: #007BB5;
+        }
         #recetas {
             border-top: 2px solid #333;
             padding-top: 20px;
@@ -111,6 +124,11 @@
             <div class="boton-receta">
                 <button onclick="window.location.href='nuevaReceta.jsp'">Nueva Receta</button>
             </div>
+        </div>
+
+        <!-- Botón para ir a Reseñas que redirige a foro.jsp -->
+        <div class="boton-resena">
+            <button onclick="window.location.href='foro.jsp'">Reseñas</button>
         </div>
     </div>
 
