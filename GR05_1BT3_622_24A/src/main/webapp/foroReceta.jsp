@@ -153,6 +153,12 @@
 
             <!-- Botón para ampliar la receta -->
             <button class="boton-ampliar" onclick="window.location.href='AmpliarRecetaServlet?id=<%= receta.getId() %>'">Ampliar</button>
+
+            <!-- Botón para eliminar la receta -->
+            <form action="EliminarRecetaServlet" method="POST" style="display:inline;">
+                <input type="hidden" name="idReceta" value="<%= receta.getId() %>" />
+                <button type="submit" class="boton-ampliar" style="background-color: red;">Eliminar</button>
+            </form>
         </div>
         <%
             }

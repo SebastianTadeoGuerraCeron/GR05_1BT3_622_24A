@@ -95,6 +95,13 @@
     <div class="comentario">
       <p><strong>Publicado:</strong> <%= comentario.getFechaPublicacion() %></p>
       <p><%= comentario.getTexto() %></p>
+
+      <!-- Botón para eliminar el comentario -->
+      <form action="EliminarComentarioRecetaServlet" method="POST" style="display:inline;">
+        <input type="hidden" name="idComentario" value="<%= comentario.getId() %>" />
+        <input type="hidden" name="idReceta" value="<%= recetaAmpliada.getId() %>" />
+        <button type="submit" class="boton-cancelar">Eliminar</button>
+      </form>
     </div>
     <%
       }
