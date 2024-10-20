@@ -16,17 +16,10 @@ public class AgregarRecetaServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private RecetaJpaController recetaJpaController;
 
-    // Constructor sin parámetros requerido por Tomcat
-    public AgregarRecetaServlet() {
-        this.recetaJpaController = new RecetaJpaController(); // Inicialización de RecetaJpaController
-    }
-
-    // Constructor con RecetaJpaController como parámetro (puedes eliminarlo si no lo necesitas)
     public AgregarRecetaServlet(RecetaJpaController recetaJpaController) {
         this.recetaJpaController = recetaJpaController;
     }
 
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Obtener parámetros de la solicitud
         String nombre = request.getParameter("nombre");
@@ -50,6 +43,7 @@ public class AgregarRecetaServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        request.getRequestDispatcher("/foroReceta.jsp").forward(request,response);
+        // Enviar respuesta de éxito al cliente
+        response.getWriter().write("nuevaReceta");
     }
 }
