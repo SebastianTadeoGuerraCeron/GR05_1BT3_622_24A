@@ -1,7 +1,6 @@
 package com.example.gr05_1bt3_622_24a.servlets;
 
-
-import dao.ResetaJpaController;
+import dao.RecetaJpaController;
 import modelo.Receta;
 
 import org.junit.jupiter.api.Test;
@@ -17,15 +16,15 @@ import java.io.StringWriter;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-class AgregarResetaServletTest {
+class AgregarRecetaServletTest {
 
     @Test
-    public void given_reseta_when_doPost_then_nuevaReseta() throws ServletException, IOException {
+    public void given_receta_when_doPost_then_nuevaReceta() throws ServletException, IOException {
         // Arrange
         HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
         HttpServletResponse response = Mockito.mock(HttpServletResponse.class);
-        ResetaJpaController resetaJpaController = Mockito.mock(ResetaJpaController.class);
-        AgregarRecetaServlet agregarResetaServlet = new AgregarRecetaServlet(resetaJpaController);
+        RecetaJpaController recetaJpaController = Mockito.mock(RecetaJpaController.class);
+        AgregarRecetaServlet agregarRecetaServlet = new AgregarRecetaServlet(recetaJpaController);
         StringWriter stringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(stringWriter);
         when(response.getWriter()).thenReturn(printWriter);
@@ -34,10 +33,10 @@ class AgregarResetaServletTest {
         when(request.getParameter("preparacion")).thenReturn("preparacion");
 
         // Act
-        agregarResetaServlet.doPost(request, response);
+        agregarRecetaServlet.doPost(request, response);
 
         // Assert
-        verify(resetaJpaController, times(1)).create(any(Receta.class));
-        assertTrue(stringWriter.toString().contains("nuevaReseta"));
+        verify(recetaJpaController, times(1)).create(any(Receta.class));
+        assertTrue(stringWriter.toString().contains("nuevaReceta"));
     }
 }

@@ -1,6 +1,6 @@
 package com.example.gr05_1bt3_622_24a.servlets;
 
-import dao.ResetaJpaController;
+import dao.RecetaJpaController;
 import modelo.Receta;
 import modelo.Foro;
 
@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/AgregarResetaServlet")
+@WebServlet("/AgregarRecetaServlet")
 public class AgregarRecetaServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private ResetaJpaController resetaJpaController;
+    private RecetaJpaController recetaJpaController;
 
-    public AgregarRecetaServlet(ResetaJpaController resetaJpaController) {
-        this.resetaJpaController = resetaJpaController;
+    public AgregarRecetaServlet(RecetaJpaController recetaJpaController) {
+        this.recetaJpaController = recetaJpaController;
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,12 +38,12 @@ public class AgregarRecetaServlet extends HttpServlet {
 
         try {
             // Guardar la receta en la base de datos
-            resetaJpaController.create(receta);
+            recetaJpaController.create(receta);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         // Enviar respuesta de éxito al cliente
-        response.getWriter().write("nuevaReseta");
+        response.getWriter().write("nuevaReceta");
     }
 }
