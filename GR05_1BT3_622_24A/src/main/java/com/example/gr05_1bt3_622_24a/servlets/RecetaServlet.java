@@ -16,25 +16,27 @@ import java.util.List;
 @WebServlet("/RecetaServlet")
 public class RecetaServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
+
     private final RecetaJpaController recetaJpaController = new RecetaJpaController();
+
+    // El objeto foro ahora tiene la lista auxiliar donde se almacenarán las recetas recuperadas
+    private final Foro foro = new Foro("Foro de Recetas");
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Obtener el filtro de tipo de receta desde el parámetro de la URL
         String filtroTipoReceta = request.getParameter("filtro-receta");
 
-        // Crear una instancia del foro de recetas (puedes ajustar si ya tienes una instancia en uso)
-        Foro foro = new Foro("Foro de Recetas");
+        // Recuperar todas las recetas de la base de datos mediante JPA y agregarlas a la lista auxiliar
+        List<Receta> todasRecetas = recetaJpaController.findRecetaEntities();
+        foro.setListaAuxRecetas(todasRecetas); // Almacenar en la lista auxiliar
 
-        // Obtener la lista completa de recetas
-        List<Receta> listaRecetas = foro.getListaReceta();
-
-        // Filtrar la lista de recetas según el tipo seleccionado
-        List<Receta> recetasFiltradas = Filtro.filtrarPorTipoReceta(listaRecetas, filtroTipoReceta);
+        // Filtrar las recetas según el filtro seleccionado
+        List<Receta> recetasFiltradas = Filtro.filtrarPorTipoReceta(foro.getListaAuxRecetas(), filtroTipoReceta);
 
         // Pasar la lista de recetas filtradas al JSP
         request.setAttribute("listaRecetas", recetasFiltradas);
 
-        // Redirigir a foroRecetas.jsp para mostrar las recetas
-        request.getRequestDispatcher("/foroRecetas.jsp").forward(request, response);
+        // Redirigir al foroRecetas.jsp para mostrar las recetas
+        request.getRequestDispatcher("/foroReceta.jsp").forward(request, response);
     }
 }

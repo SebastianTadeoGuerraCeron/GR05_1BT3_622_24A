@@ -1,5 +1,6 @@
 package negocio;
 
+import dao.RecetaJpaController;
 import dao.ResenaJpaController;
 import modelo.Foro;
 import modelo.Receta;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Filtro {
+
 
     public static List<Resena> obtenerYFiltrarResenas(String filtroCategoria, ResenaJpaController resenaJpaController) {
         // Crear una instancia de Foro
@@ -31,7 +33,7 @@ public class Filtro {
                 .filter(resena -> resena.getCategoria().equalsIgnoreCase(categoria))
                 .collect(Collectors.toList()); // Filtra por categoría.
     }
-
+    // Método para filtrar recetas por tipo
     public static List<Receta> filtrarPorTipoReceta(List<Receta> listaRecetas, String tipoReceta) {
         if (tipoReceta == null || tipoReceta.equalsIgnoreCase("ALL")) {
             return listaRecetas; // Si es "ALL" o nulo, devuelve la lista completa.
@@ -39,22 +41,24 @@ public class Filtro {
 
         return listaRecetas.stream()
                 .filter(receta -> receta.getTipoReceta().equalsIgnoreCase(tipoReceta))
-                .collect(Collectors.toList()); // Filtra por tipo de receta.
+                .collect(Collectors.toList());
     }
 
+    // Método para filtrar recetas por nombre
     public static List<Receta> obtenerYFiltrarRecetasPorNombre(String filtroNombre, List<Receta> listaRecetas) {
-        // Filtrar la lista de recetas según las palabras en el nombre
         return filtrarPorNombre(listaRecetas, filtroNombre);
     }
 
-    public static List<Receta> obtenerYFiltrarRecetas(String filtroTipoReceta, Foro foro) {
-        // Obtener la lista de recetas desde la clase Foro
-        List<Receta> listaRecetas = foro.mostrarRecetas();
+    // Método para obtener y filtrar recetas desde el foro
+    public static List<Receta> obtenerYFiltrarRecetas(String filtroTipoReceta, Foro foro, RecetaJpaController recetaJpaController) {
+        // Obtener la lista de recetas desde el foro usando el controlador de recetas
+        List<Receta> listaRecetas = foro.mostrarRecetas(recetaJpaController);
 
         // Filtrar la lista de recetas según el tipo de receta seleccionado en el filtro
         return filtrarPorTipoReceta(listaRecetas, filtroTipoReceta);
     }
 
+    // Método para filtrar recetas por nombre
     public static List<Receta> filtrarPorNombre(List<Receta> listaRecetas, String filtroNombre) {
         if (filtroNombre == null || filtroNombre.trim().isEmpty()) {
             return listaRecetas; // Si no hay filtro de nombre, devuelve la lista completa.
@@ -77,5 +81,4 @@ public class Filtro {
                 })
                 .collect(Collectors.toList());
     }
-
 }

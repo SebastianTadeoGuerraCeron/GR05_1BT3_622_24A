@@ -1,9 +1,8 @@
 package modelo;
 
+import dao.RecetaJpaController;
 import dao.ResenaJpaController;
 import jakarta.persistence.*;
-import negocio.Filtro;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,11 +17,15 @@ public class Foro {
 
     // Relación uno a muchos entre Foro y Reseña
     @OneToMany(mappedBy = "foro", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Resena> listaResena;
+    private List<Resena> listaResena = new ArrayList<>(); // Iniciar la lista para evitar NullPointerException
 
     // Relación uno a muchos entre Foro y Receta
     @OneToMany(mappedBy = "foro", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Receta> listaReceta = new ArrayList<>();
+
+    // Lista auxiliar para almacenar las recetas recuperadas de la base de datos
+    @Transient  // Esta anotación indica que esta lista no será persistida en la base de datos
+    private List<Receta> listaAuxRecetas = new ArrayList<>();
 
     // Constructor sin argumentos
     public Foro() {}
@@ -65,16 +68,25 @@ public class Foro {
         this.listaReceta = listaReceta;
     }
 
+    // Getters y setters para la lista auxiliar de recetas
+    public List<Receta> getListaAuxRecetas() {
+        return listaAuxRecetas;
+    }
+
+    public void setListaAuxRecetas(List<Receta> listaAuxRecetas) {
+        this.listaAuxRecetas = listaAuxRecetas;
+    }
+
     // Método para obtener todas las reseñas
     public List<Resena> mostrarResenas(ResenaJpaController resenaJpaController) {
         // Retorna todas las reseñas desde la base de datos
         return resenaJpaController.findResenaEntities();
     }
 
-    // Método para obtener todas las recetas asociadas al foro y filtrarlas
-    public List<Receta> mostrarRecetas() {
-        // Retorna la lista de recetas almacenada en el foro
-        return this.listaReceta;
+    // Método para obtener todas las recetas
+    public List<Receta> mostrarRecetas(RecetaJpaController recetaJpaController) {
+        // Retorna todas las recetas desde la base de datos
+        return recetaJpaController.findRecetaEntities();
     }
 
     @Override
@@ -84,5 +96,4 @@ public class Foro {
                 ", listaReceta=" + listaReceta +
                 '}';
     }
-
 }

@@ -39,18 +39,17 @@ public class AgregarRecetaServlet extends HttpServlet {
         Receta receta = new Receta(nombre, tipoReceta, ingredientes, preparacion);
 
         try {
-            // Aquí debes obtener el Foro de alguna manera
-            // Por simplicidad, en este ejemplo se asume que hay un foro por defecto con ID 1
-            Foro foro = foroJpaController.findForo(1L);  // Puedes cambiar el ID o la lógica para obtener el foro adecuado
+            // Obtener el foro (en este caso asumiendo que se obtiene con ID 1, puedes ajustar según sea necesario)
+            Foro foro = foroJpaController.findForo(1L);
 
-            // Publicar la receta en el foro (asociar la receta con el foro)
-            receta.publicarReceta(foro);  // Llamada al método que asocia la receta con el foro
+            // Publicar la receta en el foro
+            receta.publicarReceta(foro);
 
             // Guardar la receta en la base de datos
             recetaJpaController.create(receta);
 
-            // Redirigir a una página de éxito o al listado de recetas
-            response.sendRedirect("foroReceta.jsp");
+            // Redirigir a la página de recetas para que la nueva receta se muestre
+            response.sendRedirect("RecetaServlet");
         } catch (Exception e) {
             e.printStackTrace();  // Capturar y mostrar cualquier error
             request.setAttribute("error", "Error al guardar la receta.");
