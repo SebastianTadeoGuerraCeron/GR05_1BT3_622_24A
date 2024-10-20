@@ -1,11 +1,11 @@
 package modelo;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,12 +20,12 @@ class RecetaTest {
         foro = new Foro("Foro de recetas");
         receta = new Receta("Torta de chocolate", "Postre", "Harina, azúcar, cacao, huevos", "Mezclar los ingredientes y hornear");
     }
+
     @Test
     public void given_receta_when_publicarReceta_then_nuevaReceta(){
         System.out.println("Test publicarReceta");
         receta.publicarReceta(foro);
         System.out.println(foro.getListaReceta());
-        //assertEquals(1, foro.getListaReceta().size());
         assertTrue(foro.getListaReceta().contains(receta));
     }
 
@@ -33,9 +33,9 @@ class RecetaTest {
     public void given_receta_when_eliminarReceta_then_quitarReceta(){
         System.out.println("Test eliminarReceta");
         receta.publicarReceta(foro);
-        System.out.println( "Before " + foro.getListaReceta());
+        System.out.println("Before " + foro.getListaReceta());
         receta.eliminarReceta(foro);
-        System.out.println("After "+ foro.getListaReceta());
+        System.out.println("After " + foro.getListaReceta());
         assertFalse(foro.getListaReceta().contains(receta));
     }
 
@@ -44,19 +44,19 @@ class RecetaTest {
         // Crear una receta
         Receta receta = new Receta("Tarta de manzana", "Postre", "Manzana, azúcar, harina", "Mezclar y hornear");
 
-        // Agregar comentarios a la receta
-        //ComentarioReceta comentario1 = new ComentarioReceta("Muy buena receta, la recomiendo!");
-       // ComentarioReceta comentario2 = new ComentarioReceta("Me encantó, pero cambié algunos ingredientes.");
+        // Crear comentarios con la fecha de publicación
+        ComentarioReceta comentario1 = new ComentarioReceta("Muy buena receta, la recomiendo!", LocalDateTime.now());
+        ComentarioReceta comentario2 = new ComentarioReceta("Me encantó, pero cambié algunos ingredientes.", LocalDateTime.now());
 
-       // receta.agregarComentario(comentario1);
-       // receta.agregarComentario(comentario2);
+        // Agregar comentarios a la receta
+        receta.agregarComentario(comentario1);
+        receta.agregarComentario(comentario2);
 
         // Verificar que los comentarios se agregaron correctamente
-        List <ComentarioReceta> comentarios = receta.getComentarios();
+        List<ComentarioReceta> comentarios = receta.getComentarios();
         assertEquals(2, comentarios.size());
         assertEquals("Muy buena receta, la recomiendo!", comentarios.get(0).getTexto());
         assertEquals("Me encantó, pero cambié algunos ingredientes.", comentarios.get(1).getTexto());
-
     }
 
     @Test
@@ -64,9 +64,11 @@ class RecetaTest {
         // Crear una receta
         Receta receta = new Receta("Tarta de manzana", "Postre", "Manzana, azúcar, harina", "Mezclar y hornear");
 
-        // Agregar comentarios a la receta
-        ComentarioReceta comentario1 = new ComentarioReceta("Muy buena receta, la recomiendo!");
-        ComentarioReceta comentario2 = new ComentarioReceta("Me encantó, pero cambié algunos ingredientes.");
+        // Crear comentarios con la fecha de publicación
+        ComentarioReceta comentario1 = new ComentarioReceta("Muy buena receta, la recomiendo!", LocalDateTime.now());
+        ComentarioReceta comentario2 = new ComentarioReceta("Me encantó, pero cambié algunos ingredientes.", LocalDateTime.now());
+
+        // Agregar los comentarios a la receta
         receta.agregarComentario(comentario1);
         receta.agregarComentario(comentario2);
 
@@ -136,8 +138,6 @@ class RecetaTest {
         assertEquals(1, receta.getContadorDislike());
     }
 
-
-
     @ParameterizedTest
     @CsvSource({
             "'Torta de rata', 'Harina', 'Mezclar todo y hornear'",  // Palabra ofensiva en el nombre
@@ -146,13 +146,13 @@ class RecetaTest {
             "'Torta estúpida', 'Harina', 'Mezclar todo y hornear'"  // Palabra ofensiva en el nombre
     })
     public void givenRecetaConPalabrasOfensivas_whenVerificarContenidoOfensivo_thenRetornaTrue(String nombre, String ingredientes, String preparacion) {
-        // Arrange: Crear una receta con palabras ofensivas en diferentes partes
+        // Crear una receta con palabras ofensivas en diferentes partes
         Receta receta = new Receta(nombre, "Postre", ingredientes, preparacion);
 
-        // Act: Verificar si la receta contiene palabras ofensivas
+        // Verificar si la receta contiene palabras ofensivas
         boolean resultado = receta.verificarContenidoOfensivo();
 
-        // Assert: El resultado debe ser true porque alguna parte contiene una palabra ofensiva
+        // El resultado debe ser true porque alguna parte contiene una palabra ofensiva
         assertTrue(resultado);
     }
 
@@ -165,12 +165,9 @@ class RecetaTest {
             "'Ensalada de frutas con aderezo de yogurt natural', 'Ensalada', 'Frutas frescas, yogurt natural, miel, nueces', 'Cortar las frutas, mezclar con yogurt y miel, agregar nueces al final'",
             "'Churrasco ecuatoriano', 'Comida típica', 'Carne, arroz, huevo frito, aguacate', 'Cocinar la carne al gusto, acompañar con arroz, huevo frito y aguacate'"
     })
-
     public void given_receta_when_fieldsLessThan200Chars_then_validReceta(String nombre, String tipoReceta, String ingredientes, String preparacion) {
         Receta receta = new Receta(nombre, tipoReceta, ingredientes, preparacion);
         boolean resultado = receta.verificarContenidoMax200();
         assertTrue(resultado);
     }
-
-
 }
