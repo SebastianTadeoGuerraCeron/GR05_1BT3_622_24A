@@ -71,6 +71,12 @@ public class Foro {
         return resenaJpaController.findResenaEntities();
     }
 
+    // Método para obtener todas las recetas asociadas al foro y filtrarlas
+    public List<Receta> mostrarRecetas() {
+        // Retorna la lista de recetas almacenada en el foro
+        return this.listaReceta;
+    }
+
     @Override
     public String toString() {
         return "Foro{" +

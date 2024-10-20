@@ -1,7 +1,9 @@
 package com.example.gr05_1bt3_622_24a.servlets;
 
 import dao.RecetaJpaController;
+import dao.ForoJpaController;
 import modelo.Receta;
+import modelo.Foro;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,8 +16,9 @@ import java.io.IOException;
 public class AgregarRecetaServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    // Crear una instancia del controlador JPA
+    // Crear instancias de los controladores JPA
     private RecetaJpaController recetaJpaController = new RecetaJpaController();
+    private ForoJpaController foroJpaController = new ForoJpaController(); // Controlador para obtener el foro
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Obtener parámetros del formulario
@@ -36,8 +39,16 @@ public class AgregarRecetaServlet extends HttpServlet {
         Receta receta = new Receta(nombre, tipoReceta, ingredientes, preparacion);
 
         try {
+            // Aquí debes obtener el Foro de alguna manera
+            // Por simplicidad, en este ejemplo se asume que hay un foro por defecto con ID 1
+            Foro foro = foroJpaController.findForo(1L);  // Puedes cambiar el ID o la lógica para obtener el foro adecuado
+
+            // Publicar la receta en el foro (asociar la receta con el foro)
+            receta.publicarReceta(foro);  // Llamada al método que asocia la receta con el foro
+
             // Guardar la receta en la base de datos
             recetaJpaController.create(receta);
+
             // Redirigir a una página de éxito o al listado de recetas
             response.sendRedirect("foroReceta.jsp");
         } catch (Exception e) {

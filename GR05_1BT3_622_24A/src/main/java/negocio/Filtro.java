@@ -47,6 +47,14 @@ public class Filtro {
         return filtrarPorNombre(listaRecetas, filtroNombre);
     }
 
+    public static List<Receta> obtenerYFiltrarRecetas(String filtroTipoReceta, Foro foro) {
+        // Obtener la lista de recetas desde la clase Foro
+        List<Receta> listaRecetas = foro.mostrarRecetas();
+
+        // Filtrar la lista de recetas según el tipo de receta seleccionado en el filtro
+        return filtrarPorTipoReceta(listaRecetas, filtroTipoReceta);
+    }
+
     public static List<Receta> filtrarPorNombre(List<Receta> listaRecetas, String filtroNombre) {
         if (filtroNombre == null || filtroNombre.trim().isEmpty()) {
             return listaRecetas; // Si no hay filtro de nombre, devuelve la lista completa.
