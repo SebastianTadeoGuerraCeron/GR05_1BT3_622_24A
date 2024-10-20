@@ -16,10 +16,6 @@ public class AgregarRecetaServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private RecetaJpaController recetaJpaController;
 
-    public AgregarRecetaServlet() {
-        this.recetaJpaController = new RecetaJpaController(); // Inicialización de RecetaJpaController
-    }
-
     public AgregarRecetaServlet(RecetaJpaController recetaJpaController) {
         this.recetaJpaController = recetaJpaController;
     }
