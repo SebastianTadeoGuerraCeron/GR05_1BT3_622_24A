@@ -26,6 +26,9 @@ public class ComentarioReceta {
     public ComentarioReceta() {
     }
 
+    public ComentarioReceta(String contenido) {
+    }
+
     public String getTexto() {
         return texto;
     }

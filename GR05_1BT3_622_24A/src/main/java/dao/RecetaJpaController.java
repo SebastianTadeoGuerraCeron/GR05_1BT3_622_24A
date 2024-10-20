@@ -128,7 +128,10 @@ public class RecetaJpaController {
     public Receta findReceta(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Receta.class, id);
+            // Usamos fetch join para cargar los comentarios de la receta de forma inmediata
+            return em.createQuery("SELECT r FROM Receta r LEFT JOIN FETCH r.comentarios WHERE r.id = :id", Receta.class)
+                    .setParameter("id", id)
+                    .getSingleResult();
         } finally {
             if (em != null) {
                 em.close();
