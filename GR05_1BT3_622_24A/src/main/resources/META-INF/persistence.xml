@@ -16,8 +16,8 @@
 
         <!-- Configuración de la base de datos -->
         <properties>
-            <!-- URL de la base de datos actualizada para Docker Compose -->
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://postgres:5432/LasHuequitas"/>
+            <!-- URL de la base de datos -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/LasHuequitas"/>
 
             <!-- Usuario y contraseña de la base de datos -->
             <property name="jakarta.persistence.jdbc.user" value="postgres"/>
