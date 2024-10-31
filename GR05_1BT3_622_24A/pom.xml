@@ -88,6 +88,13 @@
 
     <build>
         <plugins>
+            <!-- Maven WAR Plugin actualizado para evitar problemas de compatibilidad -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+            </plugin>
+
             <!-- Maven Compiler Plugin para Java 20 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

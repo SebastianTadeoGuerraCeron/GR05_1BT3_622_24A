@@ -3,7 +3,7 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
              version="3.0">
-    <persistence-unit name="default" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="JavaWebLasHuequitas" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <!-- Clases de las entidades -->
@@ -11,6 +11,8 @@
         <class>modelo.Resena</class>
         <class>modelo.Comentario</class>
         <class>modelo.Usuario</class>
+        <class>modelo.Reaccion</class>
+        <class>modelo.Receta</class>
 
         <!-- Configuración de la base de datos -->
         <properties>
@@ -18,14 +20,13 @@
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/LasHuequitas"/>
 
             <!-- Usuario y contraseña de la base de datos -->
-            <property name="jakarta.persistence.jdbc.user" value="usuario"/>
+            <property name="jakarta.persistence.jdbc.user" value="postgres"/>
             <property name="jakarta.persistence.jdbc.password" value="usuario"/>
 
             <!-- Driver de la base de datos -->
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
 
             <!-- Configuración de Hibernate -->
-            <!-- El valor "update" generará o actualizará las tablas -->
             <property name="hibernate.hbm2ddl.auto" value="update"/>
 
             <!-- Mostrar las consultas SQL en la consola -->
