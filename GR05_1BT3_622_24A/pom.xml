@@ -26,7 +26,6 @@
             <scope>provided</scope>
         </dependency>
 
-
         <!-- EclipseLink JPA (Jakarta Persistence Provider) -->
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
@@ -77,11 +76,12 @@
             <version>3.1.0</version>
         </dependency>
 
-        <!-- PostgreSQL Driver -->
+        <!-- Apache Derby Driver -->
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.5.0</version>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>10.14.2.0</version>
+            <scope>runtime</scope>
         </dependency>
 
     </dependencies>

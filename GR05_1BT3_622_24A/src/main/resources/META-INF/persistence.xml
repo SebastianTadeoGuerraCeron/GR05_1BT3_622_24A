@@ -16,17 +16,18 @@
 
         <!-- Configuración de la base de datos -->
         <properties>
-            <!-- URL de la base de datos -->
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/LasHuequitas"/>
+            <!-- URL de la base de datos para Apache Derby -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:derby:./database/LasHuequitasDB;create=true"/>
 
-            <!-- Usuario y contraseña de la base de datos -->
-            <property name="jakarta.persistence.jdbc.user" value="postgres"/>
-            <property name="jakarta.persistence.jdbc.password" value="usuario"/>
+            <!-- Usuario y contraseña (Derby no requiere esto en modo embebido, pero puedes dejarlos) -->
+            <property name="jakarta.persistence.jdbc.user" value="user"/>
+            <property name="jakarta.persistence.jdbc.password" value="password"/>
 
             <!-- Driver de la base de datos -->
-            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="jakarta.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
 
             <!-- Configuración de Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
 
             <!-- Mostrar las consultas SQL en la consola -->
