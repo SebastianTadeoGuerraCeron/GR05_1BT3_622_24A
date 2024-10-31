@@ -12,8 +12,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.target>20</maven.compiler.target> <!-- Usar Java 20 -->
-        <maven.compiler.source>20</maven.compiler.source> <!-- Usar Java 20 -->
+        <maven.compiler.target>17</maven.compiler.target> <!-- Usar Java 20 -->
+        <maven.compiler.source>17</maven.compiler.source> <!-- Usar Java 20 -->
         <junit.version>5.11.0-M2</junit.version>
     </properties>
 
