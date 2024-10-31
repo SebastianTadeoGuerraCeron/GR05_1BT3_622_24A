@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.example.gr05_1bt3_622_24a.servlets.AgregarComentarioRecetaServletTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.725 s -- in com.example.gr05_1bt3_622_24a.servlets.AgregarComentarioRecetaServletTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.971 s -- in com.example.gr05_1bt3_622_24a.servlets.AgregarComentarioRecetaServletTest
