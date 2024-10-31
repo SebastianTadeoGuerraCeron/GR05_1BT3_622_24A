@@ -101,10 +101,10 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>20</source> <!-- Actualizado a 20 -->
-                    <target>20</target> <!-- Actualizado a 20 -->
+                    <source>17</source> <!-- Actualizado a 20 -->
+                    <target>17</target> <!-- Actualizado a 20 -->
                 </configuration>
             </plugin>
         </plugins>
     </build>
-</project>
+</project>  
