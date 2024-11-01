@@ -1,59 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="GR05_1BT3_622_24A:war" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="63ae9816-0637-4dc7-8c60-8e1d56d3fffb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/src/main/webapp/GR05_1BT3_622_24A-1.0-SNAPSHOT.war" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/HelloServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/NuevaResenaServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/Resena.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/AgregarComentarioServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/AgregarComentarioServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/AgregarResetaServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/EliminarComentarioRecetaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/EliminarComentarioRecetaServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/NuevaResenaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/NuevaResenaServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/ComentarioJpaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/ComentarioJpaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/ComentarioRecetaJpaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/ComentarioRecetaJpaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/ForoJpaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/ForoJpaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/RecetaJpaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/RecetaJpaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/ResenaJpaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/ResenaJpaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/ResetaJpaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/UsuarioJpaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/UsuarioJpaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/logica/ceccc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/modelo/ComentarioReceta.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/modelo/ComentarioReceta.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/modelo/Foro.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/modelo/Foro.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/modelo/Reaccion.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/modelo/Reaccion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/modelo/ReactionType.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/modelo/ReactionType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/negocio/Filtro.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/negocio/Filtro.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/negocio/ModeradorCompletoBL.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/negocio/ModeradorOfensivo.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/negocio/ModeradorOfensivo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/negocio/ModeradorOfensivoBL.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/checker-qual-3.5.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/postgresql-42.5.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/NuevaResenaServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/Resena.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/GR05_1BT3_622_24A-1.0-SNAPSHOT.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/AgregarComentarioRecetaServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/AgregarComentarioServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/AgregarRecetaServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/AmpliarRecetaServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/AmpliarResenaServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/EliminarComentarioRecetaServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/EliminarRecetaServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/ForoServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/NuevaResenaServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/ReactionRecetaServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/ReactionServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/com/example/gr05_1bt3_622_24a/servlets/RecetaServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/ComentarioJpaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/ComentarioRecetaJpaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/ForoJpaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/ReactionJpaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/RecetaJpaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/ResenaJpaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/UsuarioJpaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/exceptions/IllegalOrphanException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/exceptions/NonexistentEntityException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/dao/exceptions/PreexistingEntityException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/modelo/Comentario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/modelo/ComentarioReceta.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/modelo/Foro.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/modelo/Reaccion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/modelo/ReaccionReceta.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/modelo/ReactionType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/modelo/Receta.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/modelo/Resena.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/modelo/Usuario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/negocio/Filtro.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/negocio/ModeradorComplete.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/classes/negocio/ModeradorOfensivo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/antlr4-runtime-4.9.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/byte-buddy-1.14.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/classmate-1.5.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/derby-10.14.2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/hibernate-commons-annotations-6.0.0.CR1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/hibernate-core-6.0.0.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/istack-commons-runtime-4.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/jakarta.activation-2.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/jakarta.activation-api-2.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/jakarta.inject-api-2.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/jakarta.persistence-api-3.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/jakarta.transaction-api-2.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/jakarta.xml.bind-api-3.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/jandex-2.4.2.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/jaxb-core-3.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/jaxb-runtime-3.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/jboss-logging-3.4.3.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/org.eclipse.persistence.asm-9.5.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/org.eclipse.persistence.core-4.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/org.eclipse.persistence.jpa-4.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/org.eclipse.persistence.jpa.jpql-4.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/lib/txw2-3.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/agregarComentario.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/agregarComentarioReceta.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/foro.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/foroReceta.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/nuevaReceta.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/nuevaResena.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/verReceta.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/GR05_1BT3_622_24A-1.0-SNAPSHOT/verResena.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/AgregarComentarioRecetaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/AgregarComentarioRecetaServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/AgregarComentarioServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/AgregarComentarioServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/AgregarRecetaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/AgregarRecetaServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/AgregarResetaServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/AmpliarRecetaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/AmpliarRecetaServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/AmpliarResenaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/AmpliarResenaServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/EliminarComentarioRecetaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/EliminarComentarioRecetaServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/EliminarRecetaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/EliminarRecetaServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/ForoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/ForoServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/NuevaResenaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/NuevaResenaServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/ReactionRecetaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/ReactionRecetaServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/ReactionServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/ReactionServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/RecetaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/com/example/gr05_1bt3_622_24a/servlets/RecetaServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/ResetaJpaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/logica/ceccc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/ComentarioJpaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/ComentarioJpaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/ComentarioRecetaJpaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/ComentarioRecetaJpaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/ForoJpaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/ForoJpaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/ReactionJpaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/ReactionJpaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/RecetaJpaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/RecetaJpaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/ResenaJpaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/ResenaJpaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/UsuarioJpaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/UsuarioJpaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/exceptions/IllegalOrphanException.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/exceptions/IllegalOrphanException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/exceptions/NonexistentEntityException.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/exceptions/NonexistentEntityException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/exceptions/PreexistingEntityException.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/dao/exceptions/PreexistingEntityException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/modelo/Comentario.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/modelo/Comentario.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/modelo/ComentarioReceta.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/modelo/ComentarioReceta.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/modelo/Foro.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/modelo/Foro.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/modelo/Reaccion.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/modelo/Reaccion.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/modelo/ReaccionReceta.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/modelo/ReaccionReceta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/modelo/ReactionType.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/modelo/ReactionType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/modelo/Receta.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/modelo/Receta.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/modelo/Resena.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/modelo/Resena.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/modelo/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/modelo/Usuario.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/negocio/Filtro.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/negocio/Filtro.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/negocio/ModeradorCompletoBL.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/negocio/ModeradorOfensivoBL.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/negocio/ModeradorComplete.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/negocio/ModeradorComplete.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/negocio/ModeradorOfensivo.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/classes/negocio/ModeradorOfensivo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/surefire-reports/TEST-com.example.gr05_1bt3_622_24a.servlets.AgregarComentarioRecetaServletTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/surefire-reports/TEST-com.example.gr05_1bt3_622_24a.servlets.AgregarComentarioRecetaServletTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/surefire-reports/TEST-com.example.gr05_1bt3_622_24a.servlets.AgregarRecetaServletTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/surefire-reports/TEST-com.example.gr05_1bt3_622_24a.servlets.AgregarRecetaServletTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/surefire-reports/TEST-modelo.RecetaTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/surefire-reports/TEST-modelo.RecetaTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/surefire-reports/TEST-negocio.FiltroTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/surefire-reports/TEST-negocio.FiltroTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/surefire-reports/com.example.gr05_1bt3_622_24a.servlets.AgregarComentarioRecetaServletTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/surefire-reports/com.example.gr05_1bt3_622_24a.servlets.AgregarComentarioRecetaServletTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/surefire-reports/com.example.gr05_1bt3_622_24a.servlets.AgregarRecetaServletTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/surefire-reports/com.example.gr05_1bt3_622_24a.servlets.AgregarRecetaServletTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/surefire-reports/modelo.RecetaTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/surefire-reports/modelo.RecetaTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/surefire-reports/negocio.FiltroTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/surefire-reports/negocio.FiltroTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/test-classes/com/example/gr05_1bt3_622_24a/servlets/AgregarComentarioRecetaServletTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/test-classes/com/example/gr05_1bt3_622_24a/servlets/AgregarComentarioRecetaServletTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/test-classes/com/example/gr05_1bt3_622_24a/servlets/AgregarRecetaServletTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/test-classes/com/example/gr05_1bt3_622_24a/servlets/AgregarRecetaServletTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/test-classes/com/example/gr05_1bt3_622_24a/servlets/c.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/test-classes/com/example/gr05_1bt3_622_24a/servlets/c.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/test-classes/modelo/RecetaTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/test-classes/modelo/RecetaTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/test-classes/modelo/b.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/test-classes/modelo/b.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/test-classes/negocio/FiltroTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/test-classes/negocio/FiltroTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/test-classes/negocio/a.class" beforeDir="false" afterPath="$PROJECT_DIR$/GR05_1BT3_622_24A/target/test-classes/negocio/a.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,9 +145,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
 }]]></component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2oDg0jw3wDayOFWtbEyYhtnzle2" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -73,14 +166,118 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Maven.GR05_1BT3_622_24A [clean].executor": "Run",
+    "Maven.GR05_1BT3_622_24A [compile].executor": "Run",
+    "Maven.GR05_1BT3_622_24A [test].executor": "Run",
+    "Maven.GR05_1BT3_622_24A [validate].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "refactor",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.Tomcat 9.0.96.executor": "Run",
+    "git-widget-placeholder": "derby",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/sebas/OneDrive/Escritorio/EPN/6to Semestre/Metodologías Ágiles/Primer Bimestre/GR05_1BT3_622_24A/GR05_1BT3_622_24A",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.96" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.96" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="GR05_1BT3_622_24A:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/GR05_1BT3_622_24A_war" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="b1cb9ab3-6c27-48f4-9ba1-28e5d6600331" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="62882" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="GR05_1BT3_622_24A:war" />
+        </option>
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

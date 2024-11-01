@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Thu Oct 31 19:12:32 ECT 2024:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0192-e511-0935-000000997d70 
-on database directory C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\database\LasHuequitasDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e 
-Loaded from file:/C:/Users/sebas/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+Thu Oct 31 19:20:06 ECT 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0192-e517-f484-000000b759f0 
+on database directory D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\database\LasHuequitasDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e 
+Loaded from file:/C:/Users/estef/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
-java.runtime.version=20.0.1+9-29
-user.dir=C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A
+java.runtime.version=20.0.2+9-78
+user.dir=D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A
 os.name=Windows 11
 os.arch=amd64
 os.version=10.0

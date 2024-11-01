@@ -12,8 +12,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.target>20</maven.compiler.target> <!-- Usar Java 20 -->
-        <maven.compiler.source>20</maven.compiler.source> <!-- Usar Java 20 -->
+        <maven.compiler.target>17</maven.compiler.target> <!-- Usar Java 20 -->
+        <maven.compiler.source>17</maven.compiler.source> <!-- Usar Java 20 -->
         <junit.version>5.11.0-M2</junit.version>
     </properties>
 
@@ -88,14 +88,20 @@
 
     <build>
         <plugins>
+            <!-- Maven WAR Plugin actualizado para evitar problemas de compatibilidad -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+            </plugin>
             <!-- Maven Compiler Plugin para Java 20 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>20</source> <!-- Actualizado a 20 -->
-                    <target>20</target> <!-- Actualizado a 20 -->
+                    <source>17</source> <!-- Actualizado a 20 -->
+                    <target>17</target> <!-- Actualizado a 20 -->
                 </configuration>
             </plugin>
         </plugins>

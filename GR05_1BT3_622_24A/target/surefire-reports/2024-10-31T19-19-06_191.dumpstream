@@ -1,0 +1,5 @@
+# Created at 2024-10-31T19:19:06.386
+Boot Manifest-JAR contains absolute paths in classpath 'D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+

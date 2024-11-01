@@ -1,34 +1,34 @@
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\modelo\Reaccion.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\ResenaJpaController.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\modelo\Comentario.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\negocio\Filtro.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\AgregarComentarioServlet.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\modelo\Foro.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\modelo\Usuario.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\AgregarRecetaServlet.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\ReactionRecetaServlet.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\negocio\ModeradorOfensivo.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\RecetaServlet.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\modelo\ComentarioReceta.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\exceptions\PreexistingEntityException.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\EliminarComentarioRecetaServlet.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\AgregarComentarioRecetaServlet.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\AmpliarRecetaServlet.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\EliminarRecetaServlet.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\ForoServlet.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\modelo\Receta.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\ComentarioJpaController.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\NuevaResenaServlet.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\ForoJpaController.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\exceptions\NonexistentEntityException.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\ReactionJpaController.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\negocio\ModeradorComplete.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\modelo\ReactionType.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\AmpliarResenaServlet.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\ReactionServlet.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\ComentarioRecetaJpaController.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\exceptions\IllegalOrphanException.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\modelo\ReaccionReceta.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\modelo\Resena.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\RecetaJpaController.java
-C:\Users\sebas\OneDrive\Escritorio\EPN\6to Semestre\Metodologías Ágiles\Primer Bimestre\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\UsuarioJpaController.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\AgregarComentarioServlet.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\ReactionJpaController.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\negocio\ModeradorComplete.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\AgregarRecetaServlet.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\modelo\Foro.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\ForoServlet.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\EliminarRecetaServlet.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\AmpliarRecetaServlet.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\ResenaJpaController.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\modelo\Resena.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\negocio\ModeradorOfensivo.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\RecetaJpaController.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\ReactionRecetaServlet.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\ReactionServlet.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\exceptions\PreexistingEntityException.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\ComentarioRecetaJpaController.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\modelo\Reaccion.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\UsuarioJpaController.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\modelo\ReactionType.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\exceptions\IllegalOrphanException.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\modelo\Receta.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\negocio\Filtro.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\modelo\Comentario.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\exceptions\NonexistentEntityException.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\modelo\ReaccionReceta.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\AgregarComentarioRecetaServlet.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\ComentarioJpaController.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\dao\ForoJpaController.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\NuevaResenaServlet.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\RecetaServlet.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\AmpliarResenaServlet.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\com\example\gr05_1bt3_622_24a\servlets\EliminarComentarioRecetaServlet.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\modelo\ComentarioReceta.java
+D:\6toSemestre\Metodo. Agiles\Proyecto\GR05_1BT3_622_24A\GR05_1BT3_622_24A\src\main\java\modelo\Usuario.java
